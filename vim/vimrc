@@ -10,6 +10,7 @@ set hidden
 " settings needed for solarized colorscheme
 syntax enable
 set background=dark
+let g:solarized_termcolors=256
 colorscheme solarized
 " / solarized settings
 
