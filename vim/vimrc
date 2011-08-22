@@ -13,6 +13,10 @@ set background=dark
 colorscheme solarized
 " / solarized settings
 
+" only load the closetag plugin for HTML and XML files
+autocmd FileType html,htmldjango,jinjahtml,eruby,mako let b:closetag_html_style=1
+autocmd FileType html,xhtml,xml,htmldjango,jinjahtml,eruby,mako source ~/.vim/bundle/closetag/plugin/closetag.vim
+
 set guifont=Monaco:h13
 "tab = 3 spaces
 set tabstop=2
