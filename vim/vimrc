@@ -36,6 +36,11 @@ set shiftwidth=2
 "line numbers
 set number
 
+" location of ctags files
+let Tlist_Ctags_Cmd='/usr/local/bin/ctags' 
+" omnicompletion
+set ofu=syntaxcomplete#Complete
+
 " not sure exactly what these do
 set ignorecase
 set smartcase
