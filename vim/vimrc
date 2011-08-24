@@ -14,23 +14,46 @@ let g:solarized_termcolors=256
 colorscheme solarized
 " / solarized settings
 
+" set up spellcheck but turn it off by default
+if version >= 700
+   set spl=en spell
+   set nospell
+endif
+
 " only load the closetag plugin for HTML and XML files
 autocmd FileType html,htmldjango,jinjahtml,eruby,mako let b:closetag_html_style=1
 autocmd FileType html,xhtml,xml,htmldjango,jinjahtml,eruby,mako source ~/.vim/bundle/closetag/plugin/closetag.vim
 
+" set the default font
 set guifont=Monaco:h13
-"tab = 3 spaces
+
+" tabbing and shifting etc
 set tabstop=2
 set expandtab
 "tab key style paragraph indent
 set shiftwidth=2
+
 "line numbers
 set number
+
+" not sure exactly what these do
+set ignorecase
+set smartcase
+
 "smart indenting
 set smartindent
 set autoindent
-"Allows autocomplete in file names
-set wildmode=list:longest
+
+" Autocompletion stuff
+set wildmenu
+set wildmode=list:longest,full
+
+" remove the buffer when I close a tab
+set nohidden
+
+" map jj to esc in insert mode
+inoremap jj <Esc>
+
 set laststatus=2
 "higher linespacing than default
 set linespace=3
@@ -59,12 +82,17 @@ if has("autocmd")
   autocmd bufwritepost .vimrc source $MYVIMRC
 endif
 
-" Code to make peepopen launch on new Tab
-" Doesn't seem to work though??
-" if has("gui_macvim")
-"   macmenu &File.New\ Tab key=<nop>
-"   map <D-t> <Plug>PeepOpen
-" end
+" Create Blank Newlines and stay in Normal mode
+nnoremap <silent> zj o<Esc>
+nnoremap <silent> zk O<Esc>
+
+" Space will toggle folds!
+nnoremap <space> za
+
+" Search mappings: These will make it so that going to the next one in a
+" search will center on the line it's found in.
+map N Nzz
+map n nzz
 
 if has("autocmd")
   " Highlight TODO, FIXME, NOTE, etc.
