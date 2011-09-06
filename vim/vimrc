@@ -6,6 +6,7 @@ set nocompatible
 
 set ruler " line numbers
 set hidden
+set number "line numbers
 
 " settings needed for solarized colorscheme
 syntax enable
@@ -14,35 +15,30 @@ let g:solarized_termcolors=256
 colorscheme solarized
 " / solarized settings
 
-" set up spellcheck but turn it off by default
 if version >= 700
-   set spl=en spell
-   set nospell
+   set spl=en spell " use english dictionary for spellchecking
+   set nospell " but turn it off by default
 endif
 
 " only load the closetag plugin for HTML and XML files
 autocmd FileType html,htmldjango,jinjahtml,eruby,mako let b:closetag_html_style=1
 autocmd FileType html,xhtml,xml,htmldjango,jinjahtml,eruby,mako source ~/.vim/bundle/closetag/plugin/closetag.vim
 
-" set the default font
-set guifont=Monaco:h13
+set guifont=Monaco:h13 " set the default font
 
-" tabbing and shifting etc
-set tabstop=2
-set expandtab
-"tab key style paragraph indent
+set tabstop=2 "one tab = 2 spaces
+set expandtab "when I tab, really do spaces
 set shiftwidth=2
-
-"line numbers
-set number
+set softtabstop=2
 
 " location of ctags files
 let Tlist_Ctags_Cmd='/usr/local/bin/ctags' 
 " omnicompletion
 set ofu=syntaxcomplete#Complete
 
-" not sure exactly what these do
-set ignorecase
+set mouse=a " Enable mouse support in console
+
+set ignorecase " ignore case in searches etc
 set smartcase
 
 "smart indenting
@@ -60,22 +56,29 @@ set nohidden
 inoremap jj <Esc>
 
 set laststatus=2
+
 "higher linespacing than default
 set linespace=3
+
 "move new split pane to bottom
 set splitbelow
 "split pane to RHS
 set splitright
+
 "highlight mstching search 
 set hlsearch
+
 "allow code folding. shortcuts: zc zo
 set foldenable
+
 "needed so NERDcommenter knows what file it's dealing with
 filetype plugin on
 "not sure
 filetype indent on
+
 "map :NERDTreeToggle to Ctrl-D
 nmap <silent> <C-D> :NERDTreeToggle<CR>
+
 "change zen coding expander shortcut
 let g:user_zen_expandabbr_key = '<C-e>'
 
