@@ -1,0 +1,21 @@
+# ignore-case when auto-completing
+set completion-ignore-case on
+
+# only show what we need to type to complete
+set completion-prefix-display-length 2
+
+# shortcuts for cycling through completions
+Control-j: menu-complete
+Control-k: menu-complete-backward
+
+# show ambiguous match options after
+# only one Tab
+set show-all-if-ambiguous on
+set show-all-if-unmodified on
+
+# treat underscores and hyphens equally
+# helps if you do lots of hyphens
+set completion-map-case on
+
+# add a trailing '/' when tab completing a symlink
+set mark-symlinked-directories on
