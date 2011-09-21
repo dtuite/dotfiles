@@ -128,6 +128,16 @@ if has("autocmd")
   endif
 endif
 
+" Disable arrow keys
+noremap  <Up> ""
+noremap! <Up> <Esc>
+noremap  <Down> ""
+noremap! <Down> <Esc>
+noremap  <Left> ""
+noremap! <Left> <Esc>
+noremap  <Right> ""
+noremap! <Right> <Esc>
+
 "create an abbreviation for insert mode
 "iabbrev abbreviation expansion
 "create an abbreviation for normal mode
