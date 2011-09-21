@@ -20,9 +20,12 @@ set number "line numbers
 " Define autocmd for some highlighting *before* the colorscheme is loaded
 if !exists("autocmd_colorscheme_loaded")
   let autocmd_colorscheme_loaded = 1
-  autocmd ColorScheme * highlight ExtraWhitespace ctermbg=darkgreen guibg=#444444
-  autocmd ColorScheme * highlight Tab             ctermbg=darkblue  guibg=darkblue
-  autocmd ColorScheme * highlight GoodNews        ctermbg=black     guibg=#002b36  ctermfg=LightGreen guifg=#12C934
+  " autocmd ColorScheme * highlight ExtraWhitespace ctermbg=darkgreen guibg=#444444
+  " autocmd ColorScheme * highlight Tab             ctermbg=darkblue  guibg=darkblue
+  " autocmd ColorScheme * highlight GoodNews        ctermbg=black     guibg=#002b36  ctermfg=LightGreen guifg=#12C934
+  autocmd ColorScheme * highlight TodoRed      ctermbg=darkgreen guibg=#002b37 ctermfg=LightRed     guifg=#E01B1B
+  autocmd ColorScheme * highlight TodoOrange   ctermbg=darkgreen guibg=#002b37 ctermfg=LightMagenta guifg=#E0841B
+  autocmd ColorScheme * highlight TodoYellow   ctermbg=darkgreen guibg=#002b37 ctermfg=LightYellow  guifg=#E0D91B
 endif
 
 " settings needed for solarized colorscheme
@@ -47,6 +50,9 @@ set tabstop=2 "one tab = 2 spaces
 set expandtab "when I tab, really do spaces
 set shiftwidth=2
 set softtabstop=2
+
+" enable mouse support in console
+set mouse=a
 
 " location of ctags files
 let Tlist_Ctags_Cmd='/usr/local/bin/ctags' 
@@ -114,17 +120,27 @@ nnoremap <silent> zk O<Esc>
 " Space will toggle folds!
 nnoremap <space> za
 
+noremap <C-T> :CommandT<CR>
+
 " Search mappings: These will make it so that going to the next one in a
 " search will center on the line it's found in.
 map N Nzz
 map n nzz
 
+" Swap ; and :  Convenient.
+nnoremap ; :
+nnoremap : ;
+
 if has("autocmd")
   " Highlight TODO, FIXME, NOTE, etc.
   if v:version > 701
     " Build-in colours: Todo, Debug (not-comprehensive!)
-    autocmd Syntax * call matchadd('Debug',  '\W\zs\(TODO\|FIXME\|CHANGED\|BUG\|HACK\)')
-    autocmd Syntax * call matchadd('GoodNews', '\W\zs\(NOTE\|INFO\|IDEA\)')
+    " autocmd Syntax * call matchadd('Debug',  '\W\zs\(TODO\|FIXME\|CHANGED\|BUG\|HACK\)')
+    " autocmd Syntax * call matchadd('GoodNews', '\W\zs\(NOTE\|INFO\|IDEA\)')
+    autocmd Syntax * call matchadd('TodoRed', '\W\zs\(TODO1\)')
+    autocmd Syntax * call matchadd('TodoOrange', '\W\zs\(TODO2\)')
+    autocmd Syntax * call matchadd('TodoYellow', '\W\zs\(TODO3\)')
+
   endif
 endif
 

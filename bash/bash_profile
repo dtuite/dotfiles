@@ -26,17 +26,20 @@ alias ..="cd .."
 alias ls="ls -G"
 
 # git aliases
-alias ga="git add ."
-alias gp="git push"
-alias gca="git commit -a"
-alias gaca="git add . && git commit -a"
-alias gacam="git add . && git commit -a -m"
-alias gcam="git commit -a -m"
-alias gd="git diff --color"
-alias gs="git status"
-alias gb="git branch --color"
-alias gl="git log --color"
-alias gch="git checkout"
+# Not sure if these are a great idea. They're poluting the global namespace
+# alias ga="git add ."
+# alias gp="git push"
+# alias gca="git commit -a"
+# alias gcam="git commit -a -m"
+# alias gcaa="git commit -a --amend"
+# alias gaca="git add . && git commit -a"
+# alias gacam="git add . && git commit -a -m"
+# alias gcam="git commit -a -m"
+# alias gd="git diff --color"
+# alias gs="git status"
+# alias gb="git branch --color"
+# alias gl="git log --color"
+# alias gch="git checkout"
 
 ##########################################
 ### PROMPT STYLING

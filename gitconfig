@@ -5,14 +5,20 @@
 [alias]
 	s = status
 	a = add .
-	ac = add . && git commit -m
-	c = commit -m
-	ca = commit -a -m
+	acam = add . && git commit -m
+	ca = commit -a
+	cam = commit -a -m
 	caa = commit -a --amend
 	d = diff --color
-	l = log --color
+	l = log --graph --abbrev-commit --date=relative
 	p = push
   b = branch --color
   ch = checkout
 [core]
 	editor = /usr/bin/vim
+
+[format]
+  pretty=format:%C(yellow)%h%Creset -%C(red)%d%Creset %s %Cgreen(%ar) %C(bold blue)<%an>%Creset
+
+[merge]
+  tool = vimdiff
