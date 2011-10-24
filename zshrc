@@ -1,7 +1,7 @@
 # This will set the default prompt to the walters theme
 # prompt walters
 # Path to your oh-my-zsh configuration.
-ZSH=$HOME/.oh-my-zsh
+export ZSH=$HOME/.oh-my-zsh
 
 # Set name of the theme to load.
 # Look in ~/.oh-my-zsh/themes/
@@ -41,3 +41,8 @@ export PATH=/usr/bin:/bin:/usr/sbin:/sbin:/usr/local/bin:/usr/X11/bin
 autoload -U compinit promptinit
 compinit
 promptinit
+# add trailing slashes to directory names
+AUTO_PARAM_SLASH="true"
+
+# Don't correct the following commands
+Alias thin='nocorrect thin'
