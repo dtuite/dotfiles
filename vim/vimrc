@@ -20,25 +20,11 @@ set number "line numbers
 " Define autocmd for some highlighting *before* the colorscheme is loaded
 if !exists("autocmd_colorscheme_loaded")
   let autocmd_colorscheme_loaded = 1
-  " autocmd ColorScheme * highlight ExtraWhitespace ctermbg=darkgreen guibg=#444444
-  " autocmd ColorScheme * highlight Tab             ctermbg=darkblue  guibg=darkblue
-  " autocmd ColorScheme * highlight GoodNews     ctermbg=black     guibg=#002b37 ctermfg=LightGreen   guifg=#12C934
+  autocmd ColorScheme * highlight GoodNews     ctermbg=black     guibg=#002b37 ctermfg=LightGreen   guifg=#12C934
+  autocmd ColorScheme * highlight WarningPurp  ctermbg=darkgreen guibg=#002b37 ctermfg=LightMagenta guifg=#B543B3
   autocmd ColorScheme * highlight TodoRed      ctermbg=darkgreen guibg=#002b37 ctermfg=LightRed     guifg=#E01B1B
   autocmd ColorScheme * highlight TodoOrange   ctermbg=darkgreen guibg=#002b37 ctermfg=LightMagenta guifg=#E0841B
   autocmd ColorScheme * highlight TodoYellow   ctermbg=darkgreen guibg=#002b37 ctermfg=LightYellow  guifg=#E0D91B
-endif
-
-" Highlight labels
-if has("autocmd")
-  " Highlight TODO, FIXME, NOTE, etc.
-  if v:version > 701
-    " Build-in colours: Todo, Debug (not-comprehensive!)
-    " autocmd Syntax * call matchadd('Debug',  '\W\zs\(???\|NOTE\)')
-    " autocmd Syntax * call matchadd('GoodNews', '\W\zs\(INFO\|IDEA\)')
-    autocmd Syntax * call matchadd('TodoRed', '\W\zs\(TODO1\)')
-    autocmd Syntax * call matchadd('TodoOrange', '\W\zs\(TODO2\)')
-    autocmd Syntax * call matchadd('TodoYellow', '\W\zs\(TODO3\)')
-  endif
 endif
 
 " settings needed for solarized colorscheme
@@ -47,6 +33,19 @@ set background=dark
 let g:solarized_termcolors=256
 colorscheme solarized
 " / solarized settings
+
+" Highlight labels. NOTE: This has to come after we set our colorscheme
+if has("autocmd")
+  " Highlight TODO, FIXME, NOTE, etc.
+  if v:version > 701
+    " Build-in colours: Todo, Debug (not-comprehensive!)
+    autocmd Syntax * call matchadd('WarningPurp',  '\W\zs\(???\|NOTE\|TODO\|FIXME\|XXX\)')
+    autocmd Syntax * call matchadd('GoodNews', '\W\zs\(INFO\|IDEA\)')
+    autocmd Syntax * call matchadd('TodoRed', '\W\zs\(TODO1\)')
+    autocmd Syntax * call matchadd('TodoOrange', '\W\zs\(TODO2\)')
+    autocmd Syntax * call matchadd('TodoYellow', '\W\zs\(TODO3\)')
+  endif
+endif
 
 if version >= 700
    set spl=en spell " use english dictionary for spellchecking
