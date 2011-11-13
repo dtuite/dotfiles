@@ -5,6 +5,8 @@
 [alias]
 	s = status
 	a = add .
+  c = commit
+  cm = commit -m
 	acam = add . && git commit -m
 	ca = commit -a
 	cam = commit -a -m

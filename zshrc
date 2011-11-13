@@ -46,3 +46,4 @@ AUTO_PARAM_SLASH="true"
 
 # Don't correct the following commands
 Alias thin='nocorrect thin'
+Alias guard='nocorrect guard'
