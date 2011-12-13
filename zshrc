@@ -10,7 +10,7 @@ export ZSH=$HOME/.oh-my-zsh
 ZSH_THEME="robbyrussell"
 
 # Set to this to use case-sensitive completion
-# CASE_SENSITIVE="true"
+CASE_SENSITIVE="true"
 
 # Comment this out to disable weekly auto-update checks
 # DISABLE_AUTO_UPDATE="true"
@@ -24,26 +24,22 @@ ZSH_THEME="robbyrussell"
 # Uncomment following line if you want red dots to be displayed while waiting for completion
 # COMPLETION_WAITING_DOTS="true"
 
-# to make the RVM functions available in shell
-# Load RVM into a shell session *as a function*
-"$HOME/.rvm/scripts/rvm" ]] && . "$HOME/.rvm/scripts/rvm"  
-
 # Which plugins would you like to load? (plugins can be found in ~/.oh-my-zsh/plugins/*)
 # Example format: plugins=(rails git textmate ruby lighthouse)
 plugins=(git rvm)
 
 source $ZSH/oh-my-zsh.sh
 
-# Customize to your needs...
+ #Customize to your needs...
+ #builtin rehashu)
 export PATH=/usr/bin:/bin:/usr/sbin:/sbin:/usr/local/bin:/usr/X11/bin
 
 # Autocomplete settings
 autoload -U compinit promptinit
 compinit
 promptinit
-# add trailing slashes to directory names
-AUTO_PARAM_SLASH="true"
 
 # Don't correct the following commands
 Alias thin='nocorrect thin'
 Alias guard='nocorrect guard'
+[[ -s "$HOME/.rvm/scripts/rvm" ]] && . "$HOME/.rvm/scripts/rvm" # Load RVM function
