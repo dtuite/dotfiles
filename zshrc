@@ -26,7 +26,7 @@ CASE_SENSITIVE="true"
 
 # Which plugins would you like to load? (plugins can be found in ~/.oh-my-zsh/plugins/*)
 # Example format: plugins=(rails git textmate ruby lighthouse)
-plugins=(git rvm)
+plugins=(git rvm dtuite)
 
 source $ZSH/oh-my-zsh.sh
 
@@ -35,11 +35,13 @@ source $ZSH/oh-my-zsh.sh
 export PATH=/usr/bin:/bin:/usr/sbin:/sbin:/usr/local/bin:/usr/X11/bin
 
 # Autocomplete settings
-autoload -U compinit promptinit
-compinit
-promptinit
+# autoload -U compinit promptinit
+#compinit
+#promptinit
 
 # Don't correct the following commands
 Alias thin='nocorrect thin'
 Alias guard='nocorrect guard'
+
+# Load RVM in shell
 [[ -s "$HOME/.rvm/scripts/rvm" ]] && . "$HOME/.rvm/scripts/rvm" # Load RVM function
