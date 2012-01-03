@@ -159,3 +159,21 @@ nnoremap : ;
 "abbrev abbreviation expansion
 "nmap -> normal mode keymap
 "imap -> insert mode keymap
+
+" Turn 'post = Facto..' into 'let(:post){ Facto...'
+" Taken from Gary Bernhart's .vimrc
+" https://github.com/garybernhardt/dotfiles/blob/master/.vimrc
+" NOTE: Doesn't work
+function! PromoteToLet()
+  :normal! dd
+  " :exec '?^\s*it\>'
+  :normal! P
+  :.s/\(\w\+\) = \(.*\)$/let(:\1) { \2 }/
+  :normal ==
+  " :normal! <<
+  " :normal! ilet(:
+  " :normal! f 2cl) {
+  " :normal! A }
+endfunction
+:command! PromoteToLet :call PromoteToLet()
+:map <leader>p :PromoteToLet<cr>
