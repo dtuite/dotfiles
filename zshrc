@@ -42,6 +42,9 @@ export PATH=${PATH}:~/wd/android/android-sdk-mac_x86/tools:~/wd/android/android-
 #compinit
 #promptinit
 
+# Turn off auto-spelling-correction
+setopt nocorrectall
+
 # Don't correct the following commands
 Alias thin='nocorrect thin'
 Alias guard='nocorrect guard'
