@@ -46,8 +46,9 @@ export PATH=${PATH}:~/wd/android/android-sdk-mac_x86/tools:~/wd/android/android-
 setopt nocorrectall
 
 # Don't correct the following commands
-Alias thin='nocorrect thin'
-Alias guard='nocorrect guard'
+alias thin='nocorrect thin'
+alias guard='nocorrect guard'
+alias migrate='rake db:migrate && rake db:test:prepare'
 
 # Load RVM in shell
 [[ -s "$HOME/.rvm/scripts/rvm" ]] && . "$HOME/.rvm/scripts/rvm" # Load RVM function
