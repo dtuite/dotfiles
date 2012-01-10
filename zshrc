@@ -32,7 +32,7 @@ source $ZSH/oh-my-zsh.sh
 
  #Customize to your needs...
  #builtin rehashu)
-export PATH=/usr/bin:/bin:/usr/sbin:/sbin:/usr/local/bin:/usr/X11/bin
+export PATH=/usr/local/bin:/usr/bin:/bin:/usr/sbin:/sbin:/usr/X11/bin:/usr/local/share/python
 
 # android SDK
 export PATH=${PATH}:~/wd/android/android-sdk-mac_x86/tools:~/wd/android/android-sdk-mac_x86/platform-tools
@@ -48,6 +48,10 @@ setopt nocorrectall
 # Don't correct the following commands
 Alias thin='nocorrect thin'
 Alias guard='nocorrect guard'
+
+# TODO2: THis should be moved into a plugin
+# ??? Doesn't seem to work anyway
+Alias migrate='rake db:migrate && rake db:test:prepare'
 
 # Load RVM in shell
 [[ -s "$HOME/.rvm/scripts/rvm" ]] && . "$HOME/.rvm/scripts/rvm" # Load RVM function
