@@ -1,7 +1,7 @@
 " get pathogen working
 call pathogen#infect()
 
-" Use Vim settings, rather then Vi settings (much better!).
+" Use Vim settings, rather then Vi settings
 " This must be first, because it changes other options as a side effect.
 set nocompatible
 
@@ -39,7 +39,9 @@ endif
 syntax enable
 set background=dark
 let g:solarized_termcolors=256
-colorscheme solarized
+if has("gui_running")
+  colorscheme solarized
+endif
 
 " Highlight labels. NOTE: This has to come after we set our colorscheme
 if has("autocmd")
