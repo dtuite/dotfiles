@@ -40,7 +40,6 @@ syntax enable
 set background=dark
 let g:solarized_termcolors=256
 colorscheme solarized
-" / solarized settings
 
 " Highlight labels. NOTE: This has to come after we set our colorscheme
 if has("autocmd")
