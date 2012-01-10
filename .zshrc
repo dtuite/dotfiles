@@ -26,7 +26,7 @@ CASE_SENSITIVE="true"
 
 # Which plugins would you like to load? (plugins can be found in ~/.oh-my-zsh/plugins/*)
 # Example format: plugins=(rails git textmate ruby lighthouse)
-plugins=(git rvm dtuite)
+plugins=(git rvm)
 
 source $ZSH/oh-my-zsh.sh
 
@@ -48,10 +48,6 @@ setopt nocorrectall
 # Don't correct the following commands
 Alias thin='nocorrect thin'
 Alias guard='nocorrect guard'
-
-# TODO2: THis should be moved into a plugin
-# ??? Doesn't seem to work anyway
-Alias migrate='rake db:migrate && rake db:test:prepare'
 
 # Load RVM in shell
 [[ -s "$HOME/.rvm/scripts/rvm" ]] && . "$HOME/.rvm/scripts/rvm" # Load RVM function
