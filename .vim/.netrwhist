@@ -1,0 +1,6 @@
+let g:netrw_dirhistmax  =10
+let g:netrw_dirhist_cnt =4
+let g:netrw_dirhist_1='/Users/davidtuite/wd/stuff/blog/_posts'
+let g:netrw_dirhist_2='/Users/davidtuite/wd/stuff/octopress_blog/source/_posts'
+let g:netrw_dirhist_3='/Users/davidtuite/wd/rails-projects/busables/db/migrate'
+let g:netrw_dirhist_4='/Users/davidtuite/dev/stuff/octopress_blog/source/_posts'
