@@ -18,7 +18,7 @@ set history=1000
 
 set number "line numbers
 " relative line numbers rather than absolute
-set relativenumber
+" set relativenumber
 
 " COLOR DEFINITION SECTION
 " autocmd ColorScheme * highlight <ColorName> ctermbg=<TerminalBackgroundColour> guibg=<GuiBackgroundColour> ctermfg=<TerminalFontColor> guifg=<GuiFontColour>
