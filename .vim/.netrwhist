@@ -1,4 +1,8 @@
 let g:netrw_dirhistmax  =10
-let g:netrw_dirhist_cnt =2
+let g:netrw_dirhist_cnt =6
 let g:netrw_dirhist_1='/Users/davidtuite/dev/rails/busables/app/views/layouts'
 let g:netrw_dirhist_2='/Users/davidtuite/dev/rails/busables/db/migrate'
+let g:netrw_dirhist_3='/Users/davidtuite/dev/ruby/seenbefore_client'
+let g:netrw_dirhist_4='/Users/davidtuite/dev/javascript/extensions/seenbefore/oauth2/adapters'
+let g:netrw_dirhist_5='/Users/davidtuite/dev/ruby/seenbefore_client'
+let g:netrw_dirhist_6='/Users/davidtuite/dev/ruby/seenbefore/client/lib/services'
