@@ -131,6 +131,9 @@ filetype indent on
 "map :NERDTreeToggle to Ctrl-D
 nmap <silent> <C-D> :NERDTreeToggle<CR>
 
+" display the current date nad time
+map <F2> :echo 'Current time is ' . strftime('%c')<CR>
+
 "change zen coding expander shortcut
 let g:user_zen_expandabbr_key = '<C-e>'
 
