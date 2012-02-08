@@ -1,7 +1,7 @@
 " get pathogen working
 call pathogen#infect()
 " needed for Command-T
-:call pathogen#helptags()
+call pathogen#helptags()
 
 " Use Vim settings, rather then Vi settings (much better!).
 " This must be first, because it changes other options as a side effect.
