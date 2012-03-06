@@ -30,12 +30,13 @@ plugins=(git rvm git-flow)
 
 source $ZSH/oh-my-zsh.sh
 
- #Customize to your needs...
- #builtin rehashu)
+# Customize to your needs...
 export PATH=/usr/local/bin:/usr/bin:/bin:/usr/sbin:/sbin:/usr/X11/bin:/usr/local/share/python
 
 # android SDK
 export PATH=${PATH}:~/wd/android/android-sdk-mac_x86/tools:~/wd/android/android-sdk-mac_x86/platform-tools
+
+export PATH=$PATH:~/bin
 
 # Autocomplete settings
 # autoload -U compinit promptinit
@@ -55,3 +56,5 @@ alias l="ls -lh"
 
 # Load RVM in shell
 [[ -s "$HOME/.rvm/scripts/rvm" ]] && . "$HOME/.rvm/scripts/rvm" # Load RVM function
+
+PATH=$PATH:$HOME/.rvm/bin # Add RVM to PATH for scripting

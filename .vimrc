@@ -1,16 +1,12 @@
-" get pathogen working
-call pathogen#infect()
-" needed for Command-T
-call pathogen#helptags()
-
-" Use Vim settings, rather then Vi settings (much better!).
-" This must be first, because it changes other options as a side effect.
 set nocompatible
+
+call pathogen#infect()
+call pathogen#helptags()
 
 set ruler " show the cursor position all the time
 
-" Allow backgrounding buffers without writing them, and remember marks/undo
-" for backgrounded buffers
+" Allow backgrounding buffers without writing them, 
+" and remember marks/undo for backgrounded buffers
 set hidden
 
 " Remember more commands and search history
@@ -19,6 +15,10 @@ set history=1000
 set number "line numbers
 " relative line numbers rather than absolute
 " set relativenumber
+
+" Added this bacause I was having problems getting
+" backspace to work properly in terminal vim
+set backspace=2 " make backspace work like most other apps
 
 " COLOR DEFINITION SECTION
 " autocmd ColorScheme * highlight <ColorName> ctermbg=<TerminalBackgroundColour> guibg=<GuiBackgroundColour> ctermfg=<TerminalFontColor> guifg=<GuiFontColour>
@@ -128,12 +128,6 @@ filetype plugin on
 "not sure
 filetype indent on
 
-"map :NERDTreeToggle to Ctrl-D
-nmap <silent> <C-D> :NERDTreeToggle<CR>
-
-" display the current date nad time
-map <F2> :echo 'Current time is ' . strftime('%c')<CR>
-
 "change zen coding expander shortcut
 let g:user_zen_expandabbr_key = '<C-e>'
 
@@ -157,6 +151,9 @@ nnoremap <silent> zk O<Esc>
 
 " Space will toggle folds!
 nnoremap <space> za
+
+"map :NERDTreeToggle to Ctrl-D
+noremap <silent> <C-D> :NERDTreeToggle<CR>
 
 noremap <C-T> :CommandT<CR>
 

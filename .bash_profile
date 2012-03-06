@@ -62,3 +62,5 @@ PS1='\[\e[00;36m\]$(~/.rvm/bin/rvm-prompt)\[\e[m\] \[\e[00;35m\]$(vcprompt)\[\e[
 #  }
 #PROMPT_COMMAND=print_before_the_prompt
 
+
+[[ -s "$HOME/.rvm/scripts/rvm" ]] && source "$HOME/.rvm/scripts/rvm" # Load RVM into a shell session *as a function*
