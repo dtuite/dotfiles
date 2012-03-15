@@ -5,6 +5,10 @@ call pathogen#helptags()
 
 set ruler " show the cursor position all the time
 
+" reduce the timeout length to speed up the 'O' command.
+" See :help esckeys for more information
+set timeoutlen=100
+
 " Allow backgrounding buffers without writing them, 
 " and remember marks/undo for backgrounded buffers
 set hidden
@@ -29,45 +33,53 @@ set backspace=2 " make backspace work like most other apps
 " Gui colours may be any HEX colour
 
 " Define autocmd for some highlighting *before* the colorscheme is loaded
-if !exists("autocmd_colorscheme_loaded")
-  let autocmd_colorscheme_loaded = 1
-  autocmd ColorScheme * highlight GoodNews     ctermbg=black     guibg=#002b37 ctermfg=LightGreen   guifg=#12C934
-  autocmd ColorScheme * highlight WarningPurp  ctermbg=darkgreen guibg=#002b37 ctermfg=LightMagenta guifg=#B543B3
-  autocmd ColorScheme * highlight TodoRed      ctermbg=darkgreen guibg=#002b37 ctermfg=LightRed     guifg=#E01B1B
-  autocmd ColorScheme * highlight TodoOrange   ctermbg=darkgreen guibg=#002b37 ctermfg=LightMagenta guifg=#E0841B
-  autocmd ColorScheme * highlight TodoYellow   ctermbg=darkgreen guibg=#002b37 ctermfg=LightYellow  guifg=#E0D91B
-endif
+" if !exists("autocmd_colorscheme_loaded")
+"   let autocmd_colorscheme_loaded = 1
+"   autocmd ColorScheme * highlight GoodNews     ctermbg=brblack guibg=#002b37 ctermfg=DarkGreen     guifg=#12C934
+"   autocmd ColorScheme * highlight WarningPurp  ctermbg=brblack guibg=#002b37 ctermfg=DarkRed     guifg=#B543B3
+"   autocmd ColorScheme * highlight TodoRed      ctermbg=brblack guibg=#002b37 ctermfg=DarkMagenta     guifg=#E01B1B
+"   autocmd ColorScheme * highlight TodoOrange   ctermbg=brblack guibg=#002b37 ctermfg=LightRed     guifg=#E0841B
+"   autocmd ColorScheme * highlight TodoYellow   ctermbg=brblack guibg=#002b37 ctermfg=DarkYellow     guifg=#E0D91B
+" endif
 
 " settings needed for solarized colorscheme
 syntax enable
 set background=dark
-let g:solarized_termcolors=256
+" Use the degraded 256 color scheme in terminal vim
+" INFO: http://ethanschoonover.com/solarized/vim-colors-solarized#important-note-for-terminal-users
+" let g:solarized_termcolors=256
 colorscheme solarized
 
 " Highlight labels. NOTE: This has to come after we set our colorscheme
-if has("autocmd")
-  " Highlight TODO, FIXME, NOTE, etc.
-  if v:version > 701
-    " Build-in colours: Todo, Debug (not-comprehensive!)
-    autocmd Syntax * call matchadd('WarningPurp',  '\W\zs\(???\|NOTE\|TODO\|FIXME\|XXX\)')
-    autocmd Syntax * call matchadd('GoodNews', '\W\zs\(INFO\|IDEA\)')
-    autocmd Syntax * call matchadd('TodoRed', '\W\zs\(TODO1\)')
-    autocmd Syntax * call matchadd('TodoOrange', '\W\zs\(TODO2\)')
-    autocmd Syntax * call matchadd('TodoYellow', '\W\zs\(TODO3\)')
-  endif
-endif
+" if has("autocmd")
+"   " Highlight TODO, FIXME, XXX, NOTE, INFO, IDEA, TODO1, TODO2, .
+"   if v:version > 701
+"     " Build-in colours: Todo, Debug (not-comprehensive!)
+"     autocmd Syntax * call matchadd('WarningPurp',  '\W\zs\(???\|NOTE\|TODO\|FIXME\|XXX\)')
+"     autocmd Syntax * call matchadd('GoodNews', '\W\zs\(INFO\|IDEA\)')
+"     autocmd Syntax * call matchadd('TodoRed', '\W\zs\(TODO1\)')
+"     autocmd Syntax * call matchadd('TodoOrange', '\W\zs\(TODO2\)')
+"     autocmd Syntax * call matchadd('TodoYellow', '\W\zs\(TODO3\)')
+"   endif
+" endif
 
 if version >= 700
    set spl=en spell " use english dictionary for spellchecking
    set nospell " but turn it off by default
 endif
 
-" make Vim recognise eruby files as html files
+" Recognise eruby files as html files
 autocmd BufRead,BufNewFile *.erb set filetype=eruby.html
 
-" only load the closetag plugin for HTML and XML files
+" Only load the closetag plugin for HTML and XML files
 autocmd FileType html,htmldjango,jinjahtml,eruby,mako let b:closetag_html_style=1
 autocmd FileType html,xhtml,xml,htmldjango,jinjahtml,eruby,mako source ~/.vim/bundle/closetag/plugin/closetag.vim
+
+" Highlight Rabl files as Ruby
+au BufRead,BufNewFile *.rabl setf ruby
+
+" Highlight JSON files list JavaScript
+autocmd BufNewFile,BufRead *.json set ft=javascript
 
 set guifont=Monaco:h13 " set the default font
 

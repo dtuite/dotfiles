@@ -1,4 +1,5 @@
 let g:netrw_dirhistmax  =10
-let g:netrw_dirhist_cnt =2
-let g:netrw_dirhist_1='/Users/davidtuite/dev/rails/political/db/migrate'
-let g:netrw_dirhist_2='/Users/davidtuite/dev/rails/political'
+let g:netrw_dirhist_cnt =3
+let g:netrw_dirhist_1='/Users/davidtuite/dotfiles/.vim/bundle'
+let g:netrw_dirhist_2='/Users/davidtuite/dotfiles/.vim/bundle/closetag'
+let g:netrw_dirhist_3='/Users/davidtuite/dotfiles/.vim/bundle'
