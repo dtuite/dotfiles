@@ -13,6 +13,8 @@ set timeoutlen=100
 " and remember marks/undo for backgrounded buffers
 set hidden
 
+set clipboard=unnamed
+
 " Remember more commands and search history
 set history=1000
 
@@ -112,6 +114,10 @@ set autoindent
 " Make tab completion for files/buffers act like bash
 set wildmenu
 set wildmode=list:longest,full
+
+" don't scan included files when autocompleting
+" It takes too long
+set complete-=i
 
 " remove the buffer when I close a tab
 set nohidden
