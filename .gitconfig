@@ -16,7 +16,12 @@
   b = branch --color
   ch = checkout
 
-	l = log --graph --abbrev-commit --date=relative
+  # Git l uses a function defined in ~/.githelpers.
+	l = "!source ~/.githelpers && pretty_git_log"
+  # The 30 most recent commits.
+  r = !git l -30
+  # Include all refs
+  la = !git l --all
 [core]
 	editor = /usr/bin/vim
 

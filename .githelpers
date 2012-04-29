@@ -1,0 +1,26 @@
+#!/bin/bash
+
+# '%h' is git's internat reference to the commit hash.
+# We prepend the color that we want it to print in and then
+# reset the color scheme after each part of the command.
+HASH="%C(yellow)%h%C(reset)"
+RELATIVE_TIME="%C(green)%ar%C(reset)"
+AUTHOR="%C(bold blue)%an%C(reset)"
+REFS="%C(red)%d%C(reset)"
+SUBJECT="%s"
+
+# We need to use '{' instead of ' ' to seperate things so that
+# we can tell the 'column' command to split on '{' instead of
+# whitespace. There is some whitespaces we don't want to split on
+# (such as in commit messages). 
+FORMAT="$HASH{$RELATIVE_TIME{$AUTHOR{$REFS $SUBJECT"
+
+function pretty_git_log() {
+  # 't' on 'tformat' means that git will print a new line at the
+  # very end of the log.
+  git log --graph --pretty="tformat:$FORMAT" | 
+  # Column lines up the columns.
+  column -t -s "{" |
+  # We need to pipe to less or else we lose the standard git paging features.
+  less -FXRS
+}
