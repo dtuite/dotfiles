@@ -74,8 +74,9 @@ endif
 autocmd BufRead,BufNewFile *.erb set filetype=eruby.html
 
 " Only load the closetag plugin for HTML and XML files
-autocmd FileType html,htmldjango,jinjahtml,eruby,mako let b:closetag_html_style=1
-autocmd FileType html,xhtml,xml,htmldjango,jinjahtml,eruby,mako source ~/.vim/bundle/closetag/plugin/closetag.vim
+" NOTE: Commented out since I uninstalled the closetag plugin
+" autocmd FileType html,htmldjango,jinjahtml,eruby,mako let b:closetag_html_style=1
+" autocmd FileType html,xhtml,xml,htmldjango,jinjahtml,eruby,mako source ~/.vim/bundle/closetag/plugin/closetag.vim
 
 " Highlight Rabl files as Ruby
 au BufRead,BufNewFile *.rabl setf ruby

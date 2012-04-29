@@ -36,7 +36,7 @@ export PATH=/usr/local/bin:/usr/bin:/bin:/usr/sbin:/sbin:/usr/X11/bin:/usr/local
 # android SDK
 export PATH=${PATH}:~/wd/android/android-sdk-mac_x86/tools:~/wd/android/android-sdk-mac_x86/platform-tools
 
-export PATH=$PATH:~/bin
+export PATH=$PATH:~/bin:/usr/local/go/bin
 
 # Autocomplete settings
 # autoload -U compinit promptinit

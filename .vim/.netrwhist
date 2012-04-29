@@ -1,6 +1,6 @@
 let g:netrw_dirhistmax  =10
 let g:netrw_dirhist_cnt =4
-let g:netrw_dirhist_1='/Users/davidtuite/dev/rails/namesourced/db/migrate'
-let g:netrw_dirhist_2='/Users/davidtuite/dev/rails/namesourced/lib/assets/javascripts'
-let g:netrw_dirhist_3='/Users/davidtuite/dev/rails/domainer/db/migrate'
-let g:netrw_dirhist_4='/Users/davidtuite/dev/rails/domainer/vendor/assets/javascripts'
+let g:netrw_dirhist_1='/Users/davidtuite/dev/rails/domainer/app/views/layouts'
+let g:netrw_dirhist_2='/Users/davidtuite/dev/rails/domainer/db/migrate'
+let g:netrw_dirhist_3='/Users/davidtuite/dev/rails/domainer/spec'
+let g:netrw_dirhist_4='/Users/davidtuite/dev/rails/domainer/db/migrate'

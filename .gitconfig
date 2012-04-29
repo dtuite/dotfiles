@@ -12,10 +12,11 @@
 	cam = commit -a -m
 	caa = commit -a --amend
 	d = diff --color
-	l = log --graph --abbrev-commit --date=relative
 	p = push
   b = branch --color
   ch = checkout
+
+	l = log --graph --abbrev-commit --date=relative
 [core]
 	editor = /usr/bin/vim
 
