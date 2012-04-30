@@ -13,6 +13,9 @@ set timeoutlen=100
 " and remember marks/undo for backgrounded buffers
 set hidden
 
+" highlight current line
+set cursorline
+
 set clipboard=unnamed
 
 " Remember more commands and search history
@@ -26,12 +29,83 @@ set number "line numbers
 " backspace to work properly in terminal vim
 set backspace=2 " make backspace work like most other apps
 
+if version >= 700
+   set spl=en spell " use english dictionary for spellchecking
+   set nospell " but turn it off by default
+endif
+set guifont=Monaco:h13 " set the default font
+
+set tabstop=2 "one tab = 2 spaces
+set expandtab "when I tab, really do spaces
+set shiftwidth=2
+set softtabstop=2
+
+" enable mouse support in console
+set mouse=a
+
+" omnicompletion
+set ofu=syntaxcomplete#Complete
+
+" Make searches case-sensitive only if they contain upper-case characters
+set ignorecase
+set smartcase
+
+" hide the toolbar in GUI mode
+if has("gui_running")
+    set go-=T
+end
+
+"smart indenting
+set smartindent
+set autoindent
+
+" Make tab completion for files/buffers act like bash
+set wildmenu
+set wildmode=list:longest,full
+
+" don't scan included files when autocompleting
+" It takes too long
+set complete-=i
+
+" remove the buffer when I close a tab
+set nohidden
+
+set laststatus=2
+
+"higher linespacing than default
+set linespace=3
+
+"move new split pane to bottom
+set splitbelow
+"split pane to RHS
+set splitright
+
+" highlight mstching search 
+" set hlsearch
+
+"allow code folding. shortcuts: zc zo
+set foldenable
+
+"needed so NERDcommenter knows what file it's dealing with
+filetype plugin on
+"not sure
+filetype indent on
+
+" Always show tab bar
+set showtabline=2
+
+" set <leader> = ','
+" let mapleader=","
+
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+" AUTOCOMMANDS
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+
 " COLOR DEFINITION SECTION
 " autocmd ColorScheme * highlight <ColorName> ctermbg=<TerminalBackgroundColour> guibg=<GuiBackgroundColour> ctermfg=<TerminalFontColor> guifg=<GuiFontColour>
 " Solarized color palate: https://github.com/altercation/solarized/blob/master/vim-colors-solarized/colors/solarized.vim
 
-" cterm colours must be from predeterminged list. See :help cterm-colors for
-" more info.
+" cterm colours must be from predeterminged list. See :help cterm-colors for more info.
 " Gui colours may be any HEX colour
 
 " Define autocmd for some highlighting *before* the colorscheme is loaded
@@ -65,10 +139,11 @@ colorscheme solarized
 "   endif
 " endif
 
-if version >= 700
-   set spl=en spell " use english dictionary for spellchecking
-   set nospell " but turn it off by default
-endif
+" Jump to last cursor position unless it's in an event handler
+autocmd BufReadPost * 
+  \ if line("'\"") > 1 && line("'\"") <= line("$") | 
+  \ exe "normal! g`\"" | 
+  \ endif
 
 " Recognise eruby files as html files
 autocmd BufRead,BufNewFile *.erb set filetype=eruby.html
@@ -84,85 +159,28 @@ au BufRead,BufNewFile *.rabl setf ruby
 " Highlight JSON files list JavaScript
 autocmd BufNewFile,BufRead *.json set ft=javascript
 
-set guifont=Monaco:h13 " set the default font
-
-set tabstop=2 "one tab = 2 spaces
-set expandtab "when I tab, really do spaces
-set shiftwidth=2
-set softtabstop=2
-
-" enable mouse support in console
-set mouse=a
-
-" location of ctags files
-let Tlist_Ctags_Cmd='/usr/local/bin/ctags' 
-" omnicompletion
-set ofu=syntaxcomplete#Complete
-
-" Make searches case-sensitive only if they contain upper-case characters
-set ignorecase
-set smartcase
-
-" hide the toolbar in GUI mode
-if has("gui_running")
-    set go-=T
-end
-
-"smart indenting
-set smartindent
-set autoindent
-
-" Make tab completion for files/buffers act like bash
-set wildmenu
-set wildmode=list:longest,full
-
-" don't scan included files when autocompleting
-" It takes too long
-set complete-=i
-
-" remove the buffer when I close a tab
-set nohidden
-
-" map jj to esc in insert mode
-inoremap jj <Esc>
-
-set laststatus=2
-
-"higher linespacing than default
-set linespace=3
-
-"move new split pane to bottom
-set splitbelow
-"split pane to RHS
-set splitright
-
-" highlight mstching search 
-" set hlsearch
-
-"allow code folding. shortcuts: zc zo
-set foldenable
-
-"needed so NERDcommenter knows what file it's dealing with
-filetype plugin on
-"not sure
-filetype indent on
-
-"change zen coding expander shortcut
-let g:user_zen_expandabbr_key = '<C-e>'
-
-" set <leader> = ','
-" let mapleader=","
-
-" Instruction for how to turn on indent guides
-" Press leader key (\ by default) then type 'ig'
-
 "source the .vimrc automatically after saving it
 if has("autocmd")
   autocmd bufwritepost .vimrc source $MYVIMRC
 endif
 
-" highlight current line
-set cursorline
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+" CUSTOM KEYMAPS AND VARIABLES
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+" location of ctags files
+let Tlist_Ctags_Cmd='/usr/local/bin/ctags' 
+
+" Change the keymap for the CtrlP plugin
+" INFO: https://github.com/kien/ctrlp.vim
+let g:ctrlp_map = '<c-t>'
+
+nnoremap <c-j> <c-w>j
+nnoremap <c-k> <c-w>k
+nnoremap <c-l> <c-w>l
+nnoremap <c-h> <c-w>h
+
+"change zen coding expander shortcut
+let g:user_zen_expandabbr_key = '<C-e>'
 
 " Create Blank Newlines and stay in Normal mode
 nnoremap <silent> zj o<Esc>
@@ -172,31 +190,21 @@ nnoremap <silent> zk O<Esc>
 nnoremap <space> za
 
 "map :NERDTreeToggle to Ctrl-D
-noremap <silent> <C-D> :NERDTreeToggle<CR>
+" noremap <silent> <C-D> :NERDTreeToggle<CR>
 
-noremap <C-T> :CommandT<CR>
+" noremap <C-T> :CommandT<CR>
 
 " Search mappings: These will make it so that going to the next one in a
 " search will center on the line it's found in.
 map N Nzz
 map n nzz
 
+" map jj to esc in insert mode
+inoremap jj <Esc>
+
 " Swap ; and :  Convenient.
 nnoremap ; :
 nnoremap : ;
-
-" Always show tab bar
-set showtabline=2
-
-" Disable arrow keys
-"noremap  <Up> ""
-"noremap! <Up> <Esc>
-"noremap  <Down> ""
-"noremap! <Down> <Esc>
-"noremap  <Left> ""
-"noremap! <Left> <Esc>
-"noremap  <Right> ""
-"noremap! <Right> <Esc>
 
 "create an abbreviation for insert mode
 "iabbrev abbreviation expansion
@@ -205,6 +213,23 @@ set showtabline=2
 "nmap -> normal mode keymap
 "imap -> insert mode keymap
 
+""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+" RENAME CURRENT FILE
+""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+function! RenameFile()
+    let old_name = expand('%')
+    let new_name = input('New file name: ', expand('%'), 'file')
+    if new_name != '' && new_name != old_name
+        exec ':saveas ' . new_name
+        exec ':silent !rm ' . old_name
+        redraw!
+    endif
+endfunction
+map <leader>n :call RenameFile()<cr>
+
+""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+" PROMOTE VARIABLE TO RSPEC LET
+""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " Turn 'post = Facto..' into 'let(:post){ Facto...'
 " Taken from Gary Bernhart's .vimrc
 " https://github.com/garybernhardt/dotfiles/blob/master/.vimrc
@@ -222,3 +247,33 @@ function! PromoteToLet()
 endfunction
 :command! PromoteToLet :call PromoteToLet()
 " :map <leader>p :PromoteToLet<cr>
+
+""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+" SWITCH BETWEEN TEST AND PRODUCTION CODE
+""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+function! OpenTestAlternate()
+  let new_file = AlternateForCurrentFile()
+  exec ':e ' . new_file
+endfunction
+function! AlternateForCurrentFile()
+  let current_file = expand("%")
+  let new_file = current_file
+  let in_spec = match(current_file, '^spec/') != -1
+  let going_to_spec = !in_spec
+  let in_app = match(current_file, '\<controllers\>') != -1 || match(current_file, '\<models\>') != -1 || match(current_file, '\<views\>') != -1
+  if going_to_spec
+    if in_app
+      let new_file = substitute(new_file, '^app/', '', '')
+    end
+    let new_file = substitute(new_file, '\.rb$', '_spec.rb', '')
+    let new_file = 'spec/' . new_file
+  else
+    let new_file = substitute(new_file, '_spec\.rb$', '.rb', '')
+    let new_file = substitute(new_file, '^spec/', '', '')
+    if in_app
+      let new_file = 'app/' . new_file
+    end
+  endif
+  return new_file
+endfunction
+nnoremap <leader>. :call OpenTestAlternate()<cr>
