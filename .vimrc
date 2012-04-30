@@ -94,9 +94,6 @@ filetype indent on
 " Always show tab bar
 set showtabline=2
 
-" set <leader> = ','
-" let mapleader=","
-
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " AUTOCOMMANDS
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
@@ -174,6 +171,9 @@ let Tlist_Ctags_Cmd='/usr/local/bin/ctags'
 " INFO: https://github.com/kien/ctrlp.vim
 let g:ctrlp_map = '<c-t>'
 
+let mapleader = ","
+
+" Switch splits withiyt the 'w'
 nnoremap <c-j> <c-w>j
 nnoremap <c-k> <c-w>k
 nnoremap <c-l> <c-w>l
@@ -246,7 +246,7 @@ function! PromoteToLet()
   " :normal! A }
 endfunction
 :command! PromoteToLet :call PromoteToLet()
-" :map <leader>p :PromoteToLet<cr>
+map <leader>p :PromoteToLet<cr>
 
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " SWITCH BETWEEN TEST AND PRODUCTION CODE
