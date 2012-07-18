@@ -2,7 +2,7 @@
 snippet aft
 	afterEach(function() { 
 		${1} 
-	}
+	});
 
 # Any
 snippet any
@@ -10,8 +10,8 @@ snippet any
 
 #	Before Each
 snippet bef
-	beforeEach(function() {
-		${1}
+	beforeEach(function(${1}) {
+		${2}
 	});
 
 # Describe

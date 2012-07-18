@@ -7,7 +7,7 @@ set ruler " show the cursor position all the time
 
 " reduce the timeout length to speed up the 'O' command.
 " See :help esckeys for more information
-set timeoutlen=100
+set timeoutlen=500
 
 " Allow backgrounding buffers without writing them, 
 " and remember marks/undo for backgrounded buffers
@@ -15,6 +15,9 @@ set hidden
 
 " highlight current line
 set cursorline
+
+" Fold based on rules in syntax files
+set foldmethod=manual
 
 set clipboard=unnamed
 
@@ -151,7 +154,7 @@ autocmd BufRead,BufNewFile *.erb set filetype=eruby.html
 " autocmd FileType html,xhtml,xml,htmldjango,jinjahtml,eruby,mako source ~/.vim/bundle/closetag/plugin/closetag.vim
 
 " Highlight Rabl files as Ruby
-au BufRead,BufNewFile *.rabl setf ruby
+au BufRead,BufNewFile *.rabl set filetype=ruby
 
 " Highlight JSON files list JavaScript
 autocmd BufNewFile,BufRead *.json set ft=javascript
@@ -164,8 +167,6 @@ endif
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " CUSTOM KEYMAPS AND VARIABLES
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-" location of ctags files
-let Tlist_Ctags_Cmd='/usr/local/bin/ctags' 
 
 " Change the keymap for the CtrlP plugin
 " INFO: https://github.com/kien/ctrlp.vim
@@ -188,11 +189,6 @@ nnoremap <silent> zk O<Esc>
 
 " Space will toggle folds!
 nnoremap <space> za
-
-"map :NERDTreeToggle to Ctrl-D
-" noremap <silent> <C-D> :NERDTreeToggle<CR>
-
-" noremap <C-T> :CommandT<CR>
 
 " Search mappings: These will make it so that going to the next one in a
 " search will center on the line it's found in.
@@ -233,7 +229,6 @@ map <leader>n :call RenameFile()<cr>
 " Turn 'post = Facto..' into 'let(:post){ Facto...'
 " Taken from Gary Bernhart's .vimrc
 " https://github.com/garybernhardt/dotfiles/blob/master/.vimrc
-" NOTE: Doesn't work
 function! PromoteToLet()
   :normal! dd
   " :exec '?^\s*it\>'
