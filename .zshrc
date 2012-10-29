@@ -50,9 +50,8 @@ setopt nocorrectall
 alias thin='nocorrect thin'
 alias guard='nocorrect guard'
 
-# random aliases
-alias migrate='rake db:migrate && rake db:test:prepare'
-alias l="ls -lh"
+# Read alises from a separate file.
+source $HOME/.aliases
 
 # Load RVM in shell
 [[ -s "$HOME/.rvm/scripts/rvm" ]] && . "$HOME/.rvm/scripts/rvm" # Load RVM function

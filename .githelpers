@@ -18,7 +18,7 @@ FORMAT="$HASH{$RELATIVE_TIME{$AUTHOR{$REFS $SUBJECT"
 function pretty_git_log() {
   # 't' on 'tformat' means that git will print a new line at the
   # very end of the log.
-  git log --graph --pretty="tformat:$FORMAT" | 
+  git log --graph --pretty="tformat:$FORMAT" -15 | 
   # Column lines up the columns.
   column -t -s "{" |
   # We need to pipe to less or else we lose the standard git paging features.

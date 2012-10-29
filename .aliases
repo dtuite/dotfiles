@@ -1,0 +1,5 @@
+# random aliases
+alias migrate='rake db:migrate && rake db:test:prepare'
+alias l="ls -lh"
+alias ls="ls -G"
+alias ..="cd .."

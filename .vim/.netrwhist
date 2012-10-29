@@ -1,5 +1,9 @@
 let g:netrw_dirhistmax  =10
-let g:netrw_dirhist_cnt =3
-let g:netrw_dirhist_1='/Users/davidtuite/dev/rails/sassbus/sassbus/db/migrate'
-let g:netrw_dirhist_2='/Users/davidtuite/dev/rails/print/db/migrate'
-let g:netrw_dirhist_3='/Users/davidtuite/dev/rails/domainer/app/mailers'
+let g:netrw_dirhist_cnt =7
+let g:netrw_dirhist_1='/Users/davidtuite/dev/seenbefore/extensions/chrome/lib/services'
+let g:netrw_dirhist_2='/Users/davidtuite/dev/seenbefore/extensions/firefox/lib/services'
+let g:netrw_dirhist_3='/Users/davidtuite/dev/seenbefore/extensions/chrome/lib/services'
+let g:netrw_dirhist_4='/Users/davidtuite/dev/seenbefore/extensions/chrome/vendor'
+let g:netrw_dirhist_5='/Users/davidtuite/dev/seenbefore/extensions/firefox/lib'
+let g:netrw_dirhist_6='/Users/davidtuite/dev/rails/print/app/views/invitations'
+let g:netrw_dirhist_7='/Users/davidtuite/dev/rails/print/app/decorators'

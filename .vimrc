@@ -36,7 +36,12 @@ if version >= 700
    set spl=en spell " use english dictionary for spellchecking
    set nospell " but turn it off by default
 endif
-set guifont=Monaco:h13 " set the default font
+
+" This guifont setting only makes a difference in MacVim or
+" similar. In terminal VIM, the terminal's setting will
+" be used. For example, change the font in iTerm2's preferences
+" pane and the font in VIM will change too.
+set guifont=SourceCodePro-Regular:h13 " set the default font
 
 set tabstop=2 "one tab = 2 spaces
 set expandtab "when I tab, really do spaces
@@ -111,16 +116,14 @@ set showtabline=2
 " Define autocmd for some highlighting *before* the colorscheme is loaded
 " if !exists("autocmd_colorscheme_loaded")
 "   let autocmd_colorscheme_loaded = 1
-"   autocmd ColorScheme * highlight GoodNews     ctermbg=brblack guibg=#002b37 ctermfg=DarkGreen     guifg=#12C934
-"   autocmd ColorScheme * highlight WarningPurp  ctermbg=brblack guibg=#002b37 ctermfg=DarkRed     guifg=#B543B3
-"   autocmd ColorScheme * highlight TodoRed      ctermbg=brblack guibg=#002b37 ctermfg=DarkMagenta     guifg=#E01B1B
-"   autocmd ColorScheme * highlight TodoOrange   ctermbg=brblack guibg=#002b37 ctermfg=LightRed     guifg=#E0841B
-"   autocmd ColorScheme * highlight TodoYellow   ctermbg=brblack guibg=#002b37 ctermfg=DarkYellow     guifg=#E0D91B
+"   autocmd ColorScheme * highlight GoodNews     ctermbg=black guibg=#002b37 ctermfg=Green     guifg=#12C934
+"   autocmd ColorScheme * highlight WarningPurp  ctermbg=black guibg=#002b37 ctermfg=DarkRed     guifg=#B543B3
+"   autocmd ColorScheme * highlight TodoOrange   ctermbg=black guibg=#002b37 ctermfg=Red     guifg=#E0841B
 " endif
 
 " settings needed for solarized colorscheme
 syntax enable
-set background=dark
+set background=light
 " Use the degraded 256 color scheme in terminal vim
 " INFO: http://ethanschoonover.com/solarized/vim-colors-solarized#important-note-for-terminal-users
 " let g:solarized_termcolors=256
@@ -131,11 +134,11 @@ colorscheme solarized
 "   " Highlight TODO, FIXME, XXX, NOTE, INFO, IDEA, TODO1, TODO2, .
 "   if v:version > 701
 "     " Build-in colours: Todo, Debug (not-comprehensive!)
-"     autocmd Syntax * call matchadd('WarningPurp',  '\W\zs\(???\|NOTE\|TODO\|FIXME\|XXX\)')
-"     autocmd Syntax * call matchadd('GoodNews', '\W\zs\(INFO\|IDEA\)')
-"     autocmd Syntax * call matchadd('TodoRed', '\W\zs\(TODO1\)')
-"     autocmd Syntax * call matchadd('TodoOrange', '\W\zs\(TODO2\)')
-"     autocmd Syntax * call matchadd('TodoYellow', '\W\zs\(TODO3\)')
+"     autocmd Syntax * call matchadd('TodoOrange',  '\W\zs\(???\|TODO\|FIXME\|XXX\)')
+"     autocmd Syntax * call matchadd('GoodNews', '\W\zs\(INFO\|IDEA\|NOTE\)')
+"     " autocmd Syntax * call matchadd('TodoRed', '\W\zs\(TODO1\)')
+"     " autocmd Syntax * call matchadd('TodoOrange', '\W\zs\(NOTE\)')
+"     " autocmd Syntax * call matchadd('TodoYellow', '\W\zs\(TODO3\)')
 "   endif
 " endif
 
@@ -146,7 +149,7 @@ autocmd BufReadPost *
   \ endif
 
 " Recognise eruby files as html files
-autocmd BufRead,BufNewFile *.erb set filetype=eruby.html
+" autocmd BufRead,BufNewFile *.erb set filetype=eruby.html
 
 " Only load the closetag plugin for HTML and XML files
 " NOTE: Commented out since I uninstalled the closetag plugin
@@ -154,7 +157,7 @@ autocmd BufRead,BufNewFile *.erb set filetype=eruby.html
 " autocmd FileType html,xhtml,xml,htmldjango,jinjahtml,eruby,mako source ~/.vim/bundle/closetag/plugin/closetag.vim
 
 " Highlight Rabl files as Ruby
-au BufRead,BufNewFile *.rabl set filetype=ruby
+" au BufRead,BufNewFile *.rabl,Gemfile,Guardfile set filetype=ruby
 
 " Highlight JSON files list JavaScript
 autocmd BufNewFile,BufRead *.json set ft=javascript
@@ -241,7 +244,7 @@ function! PromoteToLet()
   " :normal! A }
 endfunction
 :command! PromoteToLet :call PromoteToLet()
-map <leader>p :PromoteToLet<cr>
+nmap <leader>p :PromoteToLet<cr>
 
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " SWITCH BETWEEN TEST AND PRODUCTION CODE
