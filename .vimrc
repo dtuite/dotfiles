@@ -70,6 +70,8 @@ set autoindent
 " Make tab completion for files/buffers act like bash
 set wildmenu
 set wildmode=list:longest,full
+" Make tab completion and the CtrlP plugin ignore these dirs.
+set wildignore+=*/tmp/*,*.so,*.swp,*.zip
 
 " don't scan included files when autocompleting
 " It takes too long

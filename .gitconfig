@@ -3,7 +3,7 @@
 	email = dtuite@gmail.com
 
 [alias]
-	s = status
+	s = status -b
   aa = add --all
   c = commit
   cm = commit -m
@@ -29,3 +29,5 @@
 
 [merge]
   tool = vimdiff
+[color]
+	ui = 1
