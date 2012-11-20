@@ -151,7 +151,7 @@ autocmd BufReadPost *
   \ endif
 
 " Recognise eruby files as html files
-" autocmd BufRead,BufNewFile *.erb set filetype=eruby.html
+autocmd BufRead,BufNewFile *.erb set filetype=eruby.html
 
 " Only load the closetag plugin for HTML and XML files
 " NOTE: Commented out since I uninstalled the closetag plugin
@@ -159,7 +159,7 @@ autocmd BufReadPost *
 " autocmd FileType html,xhtml,xml,htmldjango,jinjahtml,eruby,mako source ~/.vim/bundle/closetag/plugin/closetag.vim
 
 " Highlight Rabl files as Ruby
-" au BufRead,BufNewFile *.rabl,Gemfile,Guardfile set filetype=ruby
+au BufRead,BufNewFile *.rabl,Gemfile,Guardfile set filetype=ruby
 
 " Highlight JSON files list JavaScript
 autocmd BufNewFile,BufRead *.json set ft=javascript
@@ -167,6 +167,13 @@ autocmd BufNewFile,BufRead *.json set ft=javascript
 "source the .vimrc automatically after saving it
 if has("autocmd")
   autocmd bufwritepost .vimrc source $MYVIMRC
+endif
+
+" Speed up loading of Ruby and ERuby files.
+" INFO: http://stackoverflow.com/a/13261715/574190 
+
+if !empty($MY_RUBY_HOME)
+ let g:ruby_path = join(split(glob($MY_RUBY_HOME.'/lib/ruby/*.*')."\n".glob($MY_RUBY_HOME.'/lib/rubysite_ruby/*'),"\n"),',')
 endif
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
@@ -199,9 +206,6 @@ nnoremap <space> za
 " search will center on the line it's found in.
 map N Nzz
 map n nzz
-
-" map jj to esc in insert mode
-inoremap jj <Esc>
 
 " Swap ; and :  Convenient.
 nnoremap ; :

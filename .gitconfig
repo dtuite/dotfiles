@@ -14,7 +14,7 @@
   ch = checkout
 
   # Git l uses a function defined in ~/.githelpers.
-	l = "!source ~/.githelpers && pretty_git_log"
+  l = "!source ~/.githelpers && pretty_git_log"
   # The 30 most recent commits.
   # FIXME: This doesn't actually work. For some reason, we can't pass
   # args for git into the pretty_git_log function.
