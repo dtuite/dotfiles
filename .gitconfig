@@ -3,19 +3,24 @@
 	email = dtuite@gmail.com
 
 [alias]
-	s = status
-	a = add .
+	s = status -b
+  aa = add --all
   c = commit
   cm = commit -m
-	acam = add . && git commit -m
-	ca = commit -a
-	cam = commit -a -m
-	caa = commit -a --amend
+  ca = commit --amend
 	d = diff --color
-	l = log --graph --abbrev-commit --date=relative
 	p = push
   b = branch --color
   ch = checkout
+
+  # Git l uses a function defined in ~/.githelpers.
+  l = "!source ~/.githelpers && pretty_git_log"
+  # The 30 most recent commits.
+  # FIXME: This doesn't actually work. For some reason, we can't pass
+  # args for git into the pretty_git_log function.
+  r = !git l -30
+  # Include all refs
+  la = !git l --all
 [core]
 	editor = /usr/bin/vim
 
@@ -24,3 +29,5 @@
 
 [merge]
   tool = vimdiff
+[color]
+	ui = 1

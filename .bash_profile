@@ -16,27 +16,10 @@ if [ -f `brew --prefix`/etc/bash_completion ]; then
   . `brew --prefix`/etc/bash_completion
 fi
 
-##########################################
-### ALIASES
-##########################################
-alias ..="cd .."
-alias ls="ls -G"
-
-# git aliases
-# Not sure if these are a great idea. They're poluting the global namespace
-# alias ga="git add ."
-# alias gp="git push"
-# alias gca="git commit -a"
-# alias gcam="git commit -a -m"
-# alias gcaa="git commit -a --amend"
-# alias gaca="git add . && git commit -a"
-# alias gacam="git add . && git commit -a -m"
-# alias gcam="git commit -a -m"
-# alias gd="git diff --color"
-# alias gs="git status"
-# alias gb="git branch --color"
-# alias gl="git log --color"
-# alias gch="git checkout"
+# Read aliases from a separate file.
+if [ -f ~/.aliases ]; then
+    . ~/.aliases
+fi
 
 ##########################################
 ### PROMPT STYLING
@@ -62,3 +45,5 @@ PS1='\[\e[00;36m\]$(~/.rvm/bin/rvm-prompt)\[\e[m\] \[\e[00;35m\]$(vcprompt)\[\e[
 #  }
 #PROMPT_COMMAND=print_before_the_prompt
 
+
+[[ -s "$HOME/.rvm/scripts/rvm" ]] && source "$HOME/.rvm/scripts/rvm" # Load RVM into a shell session *as a function*

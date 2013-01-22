@@ -26,16 +26,17 @@ CASE_SENSITIVE="true"
 
 # Which plugins would you like to load? (plugins can be found in ~/.oh-my-zsh/plugins/*)
 # Example format: plugins=(rails git textmate ruby lighthouse)
-plugins=(git rvm)
+plugins=(git rvm git-flow)
 
 source $ZSH/oh-my-zsh.sh
 
- #Customize to your needs...
- #builtin rehashu)
+# Customize to your needs...
 export PATH=/usr/local/bin:/usr/bin:/bin:/usr/sbin:/sbin:/usr/X11/bin:/usr/local/share/python
 
 # android SDK
 export PATH=${PATH}:~/wd/android/android-sdk-mac_x86/tools:~/wd/android/android-sdk-mac_x86/platform-tools
+
+export PATH=$PATH:~/bin:/usr/local/go/bin
 
 # Autocomplete settings
 # autoload -U compinit promptinit
@@ -48,7 +49,16 @@ setopt nocorrectall
 # Don't correct the following commands
 alias thin='nocorrect thin'
 alias guard='nocorrect guard'
-alias migrate='rake db:migrate && rake db:test:prepare'
+
+# Read alises from a separate file.
+source $HOME/.aliases
 
 # Load RVM in shell
 [[ -s "$HOME/.rvm/scripts/rvm" ]] && . "$HOME/.rvm/scripts/rvm" # Load RVM function
+
+PATH=$PATH:$HOME/.rvm/bin # Add RVM to PATH for scripting
+
+. `brew --prefix`/etc/profile.d/z.sh
+function precmd () {
+  z --add "$(pwd -P)"
+}
