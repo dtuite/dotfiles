@@ -6,11 +6,11 @@ snippet ld
 # do
 snippet do
 	do
-		${2}
+		${1}
 	end
 # do with attribute
 snippet doa
-	do ${1:|item|}
+	do |${1}|
 		${2}
 	end
 # New Block
@@ -44,10 +44,6 @@ snippet when
 		${2}
 snippet def
 	def ${1:method_name}
-		${2}
-	end
-snippet deft
-	def test_${1:case_name}
 		${2}
 	end
 snippet if
@@ -540,6 +536,10 @@ snippet mrc
 	remove_column :${1:table_name}, :${2:column_name}
 snippet mrenc
 	rename_column :${1:table_name}, :${2:old_column_name}, :${3:new_column_name}
+snippet mai
+	add_index :${1:table_name}, :${2:column_name}
+snippet mri
+	remove_index :${1:table_name}, :${2:column_name}
 #rspec
 snippet it
 	it ${1:spec_name} do

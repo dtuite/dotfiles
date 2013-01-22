@@ -25,6 +25,10 @@ snippet yield
 	<%= yield ${1::content_symbol}%>${2}
 snippet img
 	<%= image_tag ${1:path} %>${2}
+snippet cache
+	<% cache #{1} do %>
+		${2}
+	<% end %>
 snippet ff
 	<%= form_for ${1:item} do |f| %>
 		${2}

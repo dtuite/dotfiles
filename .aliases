@@ -1,5 +1,19 @@
-# random aliases
-alias migrate='rake db:migrate && rake db:test:prepare'
+# Bash Stuff
+# ----------
+
 alias l="ls -lh"
 alias ls="ls -G"
 alias ..="cd .."
+
+# Random Stuff
+# ------------
+
+# Open the iphone sumulator. It's a pain to find it via ususal methods.
+alias iphone="open /Applications/Xcode.app/Contents/Developer/Platforms/iPhoneSimulator.platform/Developer/Applications/iPhone\ Simulator.app"
+
+
+# Ruby and Rails
+# --------------
+
+alias migrate='rake db:migrate && rake db:test:prepare'
+alias rebuild='rake db:drop db:create && migrate && rake db:seed'
