@@ -58,7 +58,8 @@ source $HOME/.aliases
 
 PATH=$PATH:$HOME/.rvm/bin # Add RVM to PATH for scripting
 
-. `brew --prefix`/etc/profile.d/z.sh
-function precmd () {
-  z --add "$(pwd -P)"
-}
+# Init the z directory jumper
+# . `brew --prefix`/etc/profile.d/z.sh
+# function precmd () {
+#   z --add "$(pwd -P)"
+# }
