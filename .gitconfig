@@ -31,3 +31,5 @@
   tool = vimdiff
 [color]
 	ui = 1
+[push]
+	default = simple

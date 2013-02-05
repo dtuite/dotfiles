@@ -63,3 +63,6 @@ PATH=$PATH:$HOME/.rvm/bin # Add RVM to PATH for scripting
 # function precmd () {
 #   z --add "$(pwd -P)"
 # }
+
+# Prevent Git from opening a Vim session for every merge message.
+export GIT_MERGE_AUTOEDIT=no
