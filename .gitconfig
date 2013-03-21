@@ -23,6 +23,7 @@
   la = !git l --all
 [core]
 	editor = /usr/bin/vim
+	excludesfile = /Users/davidtuite/.gitignore_global
 
 [format]
   pretty=format:%C(yellow)%h%Creset -%C(red)%d%Creset %s %Cgreen(%ar) %C(bold blue)<%an>%Creset

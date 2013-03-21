@@ -11,7 +11,6 @@ alias ..="cd .."
 # Open the iphone sumulator. It's a pain to find it via ususal methods.
 alias iphone="open /Applications/Xcode.app/Contents/Developer/Platforms/iPhoneSimulator.platform/Developer/Applications/iPhone\ Simulator.app"
 
-
 # Ruby and Rails
 # --------------
 

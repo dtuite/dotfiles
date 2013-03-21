@@ -1,3 +1,11 @@
+" Vim Settings
+" Author David Tuite
+" 
+" Resources
+"  - Many of the cool parts of this document come from Gary Bernhardt's .vimrc
+"    which can be found on Github: 
+"    https://github.com/garybernhardt/dotfiles/blob/master/.vimrc
+
 call pathogen#infect()
 set nocompatible
 
@@ -165,9 +173,9 @@ au BufRead,BufNewFile *.rabl,Gemfile,Guardfile set filetype=ruby
 autocmd BufNewFile,BufRead *.json set ft=javascript
 
 "source the .vimrc automatically after saving it
-if has("autocmd")
-  autocmd bufwritepost .vimrc source $MYVIMRC
-endif
+" if has("autocmd")
+"   autocmd bufwritepost .vimrc source $MYVIMRC
+" endif
 
 " Speed up loading of Ruby and ERuby files.
 " INFO: http://stackoverflow.com/a/13261715/574190 
@@ -184,13 +192,8 @@ endif
 " INFO: https://github.com/kien/ctrlp.vim
 let g:ctrlp_map = '<c-t>'
 
+" Change the default mapleader key.
 let mapleader = ","
-
-" Switch splits withiyt the 'w'
-nnoremap <c-j> <c-w>j
-nnoremap <c-k> <c-w>k
-nnoremap <c-l> <c-w>l
-nnoremap <c-h> <c-w>h
 
 "change zen coding expander shortcut
 let g:user_zen_expandabbr_key = '<C-e>'
@@ -198,9 +201,6 @@ let g:user_zen_expandabbr_key = '<C-e>'
 " Create Blank Newlines and stay in Normal mode
 nnoremap <silent> zj o<Esc>
 nnoremap <silent> zk O<Esc>
-
-" Space will toggle folds!
-nnoremap <space> za
 
 " Search mappings: These will make it so that going to the next one in a
 " search will center on the line it's found in.
@@ -211,16 +211,11 @@ map n nzz
 nnoremap ; :
 nnoremap : ;
 
-"create an abbreviation for insert mode
-"iabbrev abbreviation expansion
-"create an abbreviation for normal mode
-"abbrev abbreviation expansion
-"nmap -> normal mode keymap
-"imap -> insert mode keymap
 
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " RENAME CURRENT FILE
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+
 function! RenameFile()
     let old_name = expand('%')
     let new_name = input('New file name: ', expand('%'), 'file')
@@ -230,7 +225,11 @@ function! RenameFile()
         redraw!
     endif
 endfunction
-map <leader>n :call RenameFile()<cr>
+
+" NOTE: This won't work when using 'nmap' or 'map' (haven't tried others).
+" Only way I've found a way to make it work is if defined with a non-recursive
+" map. What they all mean: http://stackoverflow.com/a/3776182/574190
+nnoremap <leader>n :call RenameFile()<cr>
 
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " PROMOTE VARIABLE TO RSPEC LET
@@ -250,11 +249,12 @@ function! PromoteToLet()
   " :normal! A }
 endfunction
 :command! PromoteToLet :call PromoteToLet()
-nmap <leader>p :PromoteToLet<cr>
+nnoremap <leader>p :PromoteToLet<cr>
 
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " SWITCH BETWEEN TEST AND PRODUCTION CODE
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+
 function! OpenTestAlternate()
   let new_file = AlternateForCurrentFile()
   exec ':e ' . new_file
@@ -285,11 +285,12 @@ nnoremap <leader>. :call OpenTestAlternate()<cr>
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " RUNNING TESTS
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-map <leader>t :call RunTestFile()<cr>
-map <leader>T :call RunNearestTest()<cr>
-map <leader>a :call RunTests('')<cr>
-map <leader>c :w\|:!script/features<cr>
-map <leader>w :w\|:!script/features --profile wip<cr>
+
+nnoremap <leader>t :call RunTestFile()<cr>
+nnoremap <leader>T :call RunNearestTest()<cr>
+nnoremap <leader>a :call RunTests('')<cr>
+nnoremap <leader>c :w\|:!script/features<cr>
+nnoremap <leader>w :w\|:!script/features --profile wip<cr>
 
 function! RunTestFile(...)
     if a:0
@@ -321,12 +322,6 @@ endfunction
 function! RunTests(filename)
     " Write the file and run tests for the given filename
     :w
-    :silent !echo;echo;echo;echo;echo;echo;echo;echo;echo;echo
-    :silent !echo;echo;echo;echo;echo;echo;echo;echo;echo;echo
-    :silent !echo;echo;echo;echo;echo;echo;echo;echo;echo;echo
-    :silent !echo;echo;echo;echo;echo;echo;echo;echo;echo;echo
-    :silent !echo;echo;echo;echo;echo;echo;echo;echo;echo;echo
-    :silent !echo;echo;echo;echo;echo;echo;echo;echo;echo;echo
     if match(a:filename, '\.feature$') != -1
         exec ":!script/features " . a:filename
     else

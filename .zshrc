@@ -31,10 +31,10 @@ plugins=(git rvm git-flow)
 source $ZSH/oh-my-zsh.sh
 
 # Customize to your needs...
-export PATH=/usr/local/bin:/usr/bin:/bin:/usr/sbin:/sbin:/usr/X11/bin:/usr/local/share/python
+export PATH=$PATH:/usr/local/bin:/usr/bin:/bin:/usr/sbin:/sbin:/usr/X11/bin:/usr/local/share/python
 
 # android SDK
-export PATH=${PATH}:~/wd/android/android-sdk-mac_x86/tools:~/wd/android/android-sdk-mac_x86/platform-tools
+export PATH=${PATH}:~/dev/mobile_development/android_sdk-21.0.1/tools:~/dev/mobile_development/android_sdk-21.0.1/platform-tools
 
 export PATH=$PATH:~/bin:/usr/local/go/bin
 
