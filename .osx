@@ -75,7 +75,8 @@ chflags nohidden ~/Library
 defaults write com.apple.finder WarnOnEmptyTrash -bool false
 
 # Empty Trash securely by default
-defaults write com.apple.finder EmptyTrashSecurely -bool true
+# NOTE: THis will massively increase the length of time it takes to empty.
+# defaults write com.apple.finder EmptyTrashSecurely -bool true
 
 ###############################################################################
 # Google Chrome & Google Chrome Canary                                        #

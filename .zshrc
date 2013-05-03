@@ -36,7 +36,11 @@ export PATH=$PATH:/usr/local/bin:/usr/bin:/bin:/usr/sbin:/sbin:/usr/X11/bin:/usr
 # android SDK
 export PATH=${PATH}:~/dev/mobile_development/android_sdk-21.0.1/tools:~/dev/mobile_development/android_sdk-21.0.1/platform-tools
 
+# Get go executables in path
 export PATH=$PATH:~/bin:/usr/local/go/bin
+
+# Get node modules in path
+export PATH=$PATH:/usr/local/share/npm/bin
 
 # Autocomplete settings
 # autoload -U compinit promptinit

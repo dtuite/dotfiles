@@ -1,3 +1,9 @@
 let g:netrw_dirhistmax  =10
-let g:netrw_dirhist_cnt =1
-let g:netrw_dirhist_1='/Users/davidtuite/dev/client_projects/unbound/spec'
+let g:netrw_dirhist_cnt =7
+let g:netrw_dirhist_1='/Users/davidtuite/dev/client_projects/unbound/vendor/assets/javascripts'
+let g:netrw_dirhist_2='/Users/davidtuite/dev/client_projects/unbound/vendor/assets/javascripts/jwplayer'
+let g:netrw_dirhist_3='/Users/davidtuite/dev/client_projects/unbound/vendor/assets/javascripts'
+let g:netrw_dirhist_4='/Users/davidtuite/dev/client_projects/unbound/vendor/assets/javascripts/miniplayer'
+let g:netrw_dirhist_5='/Users/davidtuite/dev/client_projects/unbound/app/assets/javascripts'
+let g:netrw_dirhist_6='/Users/davidtuite/dev/client_projects/unbound/spec/requests'
+let g:netrw_dirhist_7='/Users/davidtuite/dev/client_projects/unbound/app/views/pages/homepage'
