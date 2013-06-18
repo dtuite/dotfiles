@@ -211,6 +211,8 @@ map n nzz
 nnoremap ; :
 nnoremap : ;
 
+" Map jj to exit insert mode
+inoremap jj <Esc>
 
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " RENAME CURRENT FILE
