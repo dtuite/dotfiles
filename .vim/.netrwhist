@@ -1,10 +1,8 @@
 let g:netrw_dirhistmax  =10
-let g:netrw_dirhist_cnt =8
-let g:netrw_dirhist_1='/Users/davidtuite/dev/client_projects/unbound/db/migrate'
-let g:netrw_dirhist_2='/Users/davidtuite/dev/client_projects/unbound/app/assets/javascripts'
-let g:netrw_dirhist_3='/Users/davidtuite/dev/client_projects/unbound/app/assets/stylesheets'
-let g:netrw_dirhist_4='/Users/davidtuite/dev/client_projects/unbound/vendor/assets/stylesheets'
-let g:netrw_dirhist_5='/Users/davidtuite/dev/client_projects/unbound/app/assets/stylesheets'
-let g:netrw_dirhist_6='/Users/davidtuite/dev/client_projects/unbound/app/assets/images'
-let g:netrw_dirhist_7='/Users/davidtuite/dev/client_projects/unbound/app/assets/images/subscription-levels'
-let g:netrw_dirhist_8='/Users/davidtuite/dev/startups/print/app/assets/stylesheets'
+let g:netrw_dirhist_cnt =6
+let g:netrw_dirhist_1='/Users/davidtuite/dev/client_projects/unbound/app/assets/stylesheets'
+let g:netrw_dirhist_2='/Users/davidtuite/dev/client_projects/unbound/app/assets/stylesheets/subscription_levels'
+let g:netrw_dirhist_3='/Users/davidtuite/dev/client_projects/unbound/app/assets/javascripts'
+let g:netrw_dirhist_4='/Users/davidtuite/dev/client_projects/unbound/app/assets/javascripts/jquery_plugins'
+let g:netrw_dirhist_5='/Users/davidtuite/dev/client_projects/unbound/app/assets/javascripts'
+let g:netrw_dirhist_6='/Users/davidtuite/dev/client_projects/45_sound/web_player/assets/coffeescripts'
