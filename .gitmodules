@@ -41,3 +41,6 @@
 [submodule ".vim/bundle/vim-clojure-static"]
 	path = .vim/bundle/vim-clojure-static
 	url = git@github.com:guns/vim-clojure-static.git
+[submodule ".vim/bundle/scss"]
+	path = .vim/bundle/scss
+	url = https://github.com/cakebaker/scss-syntax.vim
