@@ -1,8 +1,6 @@
 let g:netrw_dirhistmax  =10
-let g:netrw_dirhist_cnt =6
-let g:netrw_dirhist_1='/Users/davidtuite/dev/client_projects/unbound/app/assets/stylesheets'
-let g:netrw_dirhist_2='/Users/davidtuite/dev/client_projects/unbound/app/assets/stylesheets/subscription_levels'
-let g:netrw_dirhist_3='/Users/davidtuite/dev/client_projects/unbound/app/assets/javascripts'
-let g:netrw_dirhist_4='/Users/davidtuite/dev/client_projects/unbound/app/assets/javascripts/jquery_plugins'
-let g:netrw_dirhist_5='/Users/davidtuite/dev/client_projects/unbound/app/assets/javascripts'
-let g:netrw_dirhist_6='/Users/davidtuite/dev/client_projects/45_sound/web_player/assets/coffeescripts'
+let g:netrw_dirhist_cnt =4
+let g:netrw_dirhist_1='/Users/davidtuite/dotfiles/.vim/snippets/eruby'
+let g:netrw_dirhist_2='/Users/davidtuite/dotfiles/.vim/snippets/ruby'
+let g:netrw_dirhist_3='/Users/davidtuite/dotfiles/.vim/snippets/ruby-rspec'
+let g:netrw_dirhist_4='/Users/davidtuite/dev/client_projects/tankardstown/app/assets/javascripts'
