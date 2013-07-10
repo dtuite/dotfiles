@@ -1,6 +1,10 @@
 let g:netrw_dirhistmax  =10
-let g:netrw_dirhist_cnt =4
-let g:netrw_dirhist_1='/Users/davidtuite/dotfiles/.vim/snippets/eruby'
-let g:netrw_dirhist_2='/Users/davidtuite/dotfiles/.vim/snippets/ruby'
-let g:netrw_dirhist_3='/Users/davidtuite/dotfiles/.vim/snippets/ruby-rspec'
-let g:netrw_dirhist_4='/Users/davidtuite/dev/client_projects/tankardstown/app/assets/javascripts'
+let g:netrw_dirhist_cnt =8
+let g:netrw_dirhist_1='/Users/davidtuite/dev/startups/modulz/modulz_generator/src'
+let g:netrw_dirhist_2='/Users/davidtuite/dotfiles/.vim/bundle/scss'
+let g:netrw_dirhist_3='/Users/davidtuite/dotfiles/.vim/bundle/scss/ftplugin'
+let g:netrw_dirhist_4='/Users/davidtuite/dotfiles/.vim/bundle/scss/autoload'
+let g:netrw_dirhist_5='/Users/davidtuite/dotfiles/.vim/bundle'
+let g:netrw_dirhist_6='/Users/davidtuite/dotfiles/.vim/bundle/coffeescript'
+let g:netrw_dirhist_7='/Users/davidtuite/dotfiles/.vim/bundle/coffeescript/ftplugin'
+let g:netrw_dirhist_8='/Users/davidtuite/dotfiles/.git'
