@@ -5,6 +5,7 @@
 [alias]
 	s = status -b
   aa = add --all
+  ap = add -p
   c = commit
   cm = commit -m
   ca = commit --amend

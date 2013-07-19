@@ -158,15 +158,17 @@ autocmd BufReadPost *
   \ exe "normal! g`\"" | 
   \ endif
 
+" File Type Recognition
+" ---------------------
+
 " Recognise eruby files as html files
+" NOTE: The period separates multiple filetypes.
 autocmd BufRead,BufNewFile *.erb set filetype=eruby.html
 
-" Only load the closetag plugin for HTML and XML files
-" NOTE: Commented out since I uninstalled the closetag plugin
-" autocmd FileType html,htmldjango,jinjahtml,eruby,mako let b:closetag_html_style=1
-" autocmd FileType html,xhtml,xml,htmldjango,jinjahtml,eruby,mako source ~/.vim/bundle/closetag/plugin/closetag.vim
+" Recognise all Ruby files ending in _spec.rb as RSpec files
+autocmd BufRead,BufNewFile *_spec.rb set filetype=ruby-rspec.ruby
 
-" Highlight Rabl files as Ruby
+" Highlight various files as Ruby
 au BufRead,BufNewFile *.rabl,Gemfile,Guardfile set filetype=ruby
 
 " Highlight JSON files list JavaScript
