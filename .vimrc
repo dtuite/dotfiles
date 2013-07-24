@@ -133,7 +133,7 @@ set showtabline=2
 
 " settings needed for solarized colorscheme
 syntax enable
-set background=dark
+set background=light
 " Use the degraded 256 color scheme in terminal vim
 " INFO: http://ethanschoonover.com/solarized/vim-colors-solarized#important-note-for-terminal-users
 " let g:solarized_termcolors=256

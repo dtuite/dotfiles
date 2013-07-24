@@ -1,10 +1,7 @@
 let g:netrw_dirhistmax  =10
-let g:netrw_dirhist_cnt =8
-let g:netrw_dirhist_1='/Users/davidtuite/dev/startups/print/config/initializers'
-let g:netrw_dirhist_2='/Users/davidtuite/dotfiles/.vim/snippets/eruby'
-let g:netrw_dirhist_3='/Users/davidtuite/dev/client_projects/unbound/app/views/shared/tracking'
-let g:netrw_dirhist_4='/Users/davidtuite/dev/client_projects/unbound/app/views/levels'
-let g:netrw_dirhist_5='/Users/davidtuite/dev/client_projects/unbound/app/views/shared'
-let g:netrw_dirhist_6='/Users/davidtuite/dev/startups/modulz/modulz_site/app/views/layouts'
-let g:netrw_dirhist_7='/Users/davidtuite/dev/client_projects/unbound/app/presenters'
-let g:netrw_dirhist_8='/Users/davidtuite/dev/client_projects/unbound/app/assets/stylesheets'
+let g:netrw_dirhist_cnt =5
+let g:netrw_dirhist_1='/Users/davidtuite/dev/startups/modulz/modulz_generator'
+let g:netrw_dirhist_2='/Users/davidtuite/dev/startups/print/app/mailers'
+let g:netrw_dirhist_3='/Users/davidtuite/dev/client_projects/conynghamarms/db/migrate'
+let g:netrw_dirhist_4='/Users/davidtuite/dev/client_projects/45_sound/web_player/views'
+let g:netrw_dirhist_5='/Users/davidtuite/dev/startups/modulz/modulz_site/app/assets/javascripts'
