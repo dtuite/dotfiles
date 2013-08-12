@@ -112,6 +112,12 @@ filetype indent on
 " Always show tab bar
 set showtabline=2
 
+" List of directories to ignore when searching with the CtrlP plugin.
+" Main aim with this was to ignore the vendor/bundle in Rails apps because
+" it gets filled full of gem code when you use RBenv and slows down
+" CtrlP a lot.
+let g:ctrlp_custom_ignore = '\v([\/]\.(git|hg|svn|bundle|sass-cache)|vendor/bundle)$'
+
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " AUTOCOMMANDS
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
