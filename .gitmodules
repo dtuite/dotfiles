@@ -38,3 +38,9 @@
 [submodule ".vim/bundle/scss"]
 	path = .vim/bundle/scss
 	url = https://github.com/cakebaker/scss-syntax.vim
+[submodule ".vim/bundle/snipmate"]
+	path = .vim/bundle/snipmate
+	url = https://github.com/garbas/vim-snipmate
+[submodule ".vim/bundle/emmet"]
+	path = .vim/bundle/emmet
+	url = http://github.com/mattn/emmet-vim.git
