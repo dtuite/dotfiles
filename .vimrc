@@ -171,6 +171,10 @@ autocmd BufReadPost *
 " NOTE: The period separates multiple filetypes.
 autocmd BufRead,BufNewFile *.erb set filetype=eruby.html
 
+" NOTE: This line must come after the previous one since it's matcher is
+" more specific. The one above will clobber it if it comes second.
+autocmd BufRead,BufNewFile *.html.erb set filetype=eruby-rails.eruby.html
+
 " Recognise all Ruby files ending in _spec.rb as RSpec files
 autocmd BufRead,BufNewFile *_spec.rb set filetype=ruby-rspec.ruby
 
@@ -203,8 +207,8 @@ let g:ctrlp_map = '<c-t>'
 " Change the default mapleader key.
 let mapleader = ","
 
-"change zen coding expander shortcut
-let g:user_zen_expandabbr_key = '<C-e>'
+"change expander shortcut for Emmet plugin.
+let g:user_emmet_expandabbr_key = '<C-e>'
 
 " Create Blank Newlines and stay in Normal mode
 nnoremap <silent> zj o<Esc>
@@ -212,8 +216,8 @@ nnoremap <silent> zk O<Esc>
 
 " Search mappings: These will make it so that going to the next one in a
 " search will center on the line it's found in.
-map N Nzz
-map n nzz
+noremap N Nzz
+noremap n nzz
 
 " Swap ; and :  Convenient.
 nnoremap ; :
@@ -221,6 +225,9 @@ nnoremap : ;
 
 " Map jj to exit insert mode
 inoremap jj <Esc>
+
+" Use Ctrl-u to change the word you're in the middle of typing to uppercase
+inoremap <c-u> <esc>viwUea
 
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " RENAME CURRENT FILE
