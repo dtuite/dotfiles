@@ -184,10 +184,6 @@ au BufRead,BufNewFile *.rabl,Gemfile,Guardfile set filetype=ruby
 " Highlight JSON files list JavaScript
 autocmd BufNewFile,BufRead *.json set ft=javascript
 
-"source the .vimrc automatically after saving it
-" if has("autocmd")
-"   autocmd bufwritepost .vimrc source $MYVIMRC
-" endif
 
 " Speed up loading of Ruby and ERuby files.
 " INFO: http://stackoverflow.com/a/13261715/574190 
@@ -213,6 +209,10 @@ let g:user_emmet_expandabbr_key = '<C-e>'
 " Create Blank Newlines and stay in Normal mode
 nnoremap <silent> zj o<Esc>
 nnoremap <silent> zk O<Esc>
+
+" Easily edit and source the vimrc
+nnoremap <leader>ev :vsp $MYVIMRC<cr>
+nnoremap <leader>sv :source $MYVIMRC<cr>
 
 " Search mappings: These will make it so that going to the next one in a
 " search will center on the line it's found in.
@@ -281,7 +281,7 @@ function! AlternateForCurrentFile()
   let new_file = current_file
   let in_spec = match(current_file, '^spec/') != -1
   let going_to_spec = !in_spec
-  let in_app = match(current_file, '\<controllers\>') != -1 || match(current_file, '\<models\>') != -1 || match(current_file, '\<views\>') != -1
+  let in_app = match(current_file, '\<controllers\>') != -1 || match(current_file, '\<models\>') != -1 || match(current_file, '\<views\>') != -1 || match(current_file, '\<mailers\>') != -1
   if going_to_spec
     if in_app
       let new_file = substitute(new_file, '^app/', '', '')

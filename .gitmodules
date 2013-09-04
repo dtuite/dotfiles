@@ -44,3 +44,6 @@
 [submodule ".vim/bundle/emmet"]
 	path = .vim/bundle/emmet
 	url = http://github.com/mattn/emmet-vim.git
+[submodule ".vim/bundle/autocorrect"]
+	path = .vim/bundle/autocorrect
+	url = https://github.com/panozzaj/vim-autocorrect
