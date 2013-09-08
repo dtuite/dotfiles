@@ -1,4 +1,0 @@
-# Optimize Ruby for my system. Performace enhancements.
-# NOTE: THis is specific to my processor and the version of GCC I have installed.
-# INFO: http://alisnic.net/blog/making-your-ruby-fly/
-rvm_configure_env=(CFLAGS="-march=nocona -02 -pipe")
