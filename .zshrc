@@ -31,16 +31,8 @@ plugins=(git git-flow)
 source $ZSH/oh-my-zsh.sh
 
 # Customize to your needs...
-export PATH=$PATH:/usr/local/bin:/usr/bin:/bin:/usr/sbin:/sbin:/usr/X11/bin:/usr/local/sbin
+export PATH='$PATH:/usr/local/bin:/usr/bin:/bin:/usr/sbin:/sbin:/usr/X11/bin:/usr/local/sbin'
 
-# android SDK
-export PATH=${PATH}:~/dev/mobile_development/android_sdk-21.0.1/tools:~/dev/mobile_development/android_sdk-21.0.1/platform-tools
-
-# Get go executables in path
-export PATH=$PATH:~/bin:/usr/local/go/bin
-
-# Get node modules in path
-export PATH=$PATH:/usr/local/share/npm/bin
 
 # Autocomplete settings
 # autoload -U compinit promptinit
@@ -57,15 +49,13 @@ alias guard='nocorrect guard'
 # Read alises from a separate file.
 source $HOME/.aliases
 
-# Init the z directory jumper
-# . `brew --prefix`/etc/profile.d/z.sh
-# function precmd () {
-#   z --add "$(pwd -P)"
-# }
-
 # Prevent Git from opening a Vim session for every merge message.
 export GIT_MERGE_AUTOEDIT=no
 
 # Instantiate rbenv with your shell
 eval "$(rbenv init -)"
+
 export SSL_CERT_FILE=/usr/local/etc/openssl/certs/cert.pem
+
+### Added by the Heroku Toolbelt
+export PATH="/usr/local/heroku/bin:$PATH"

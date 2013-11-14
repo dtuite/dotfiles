@@ -49,7 +49,7 @@ endif
 " similar. In terminal VIM, the terminal's setting will
 " be used. For example, change the font in iTerm2's preferences
 " pane and the font in VIM will change too.
-set guifont=SourceCodePro-Regular:h13 " set the default font
+set guifont=Monaco:h13 " set the default font
 
 set tabstop=2 "one tab = 2 spaces
 set expandtab "when I tab, really do spaces
@@ -351,3 +351,9 @@ function! RunTests(filename)
         end
     end
 endfunction
+
+""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+" COPY CURRENT FILE NAME TO CLIPBOARD
+""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+
+nnoremap <leader>f :let @+=expand('%')<cr>
