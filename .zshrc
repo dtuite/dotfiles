@@ -55,6 +55,7 @@ export GIT_MERGE_AUTOEDIT=no
 # Instantiate rbenv with your shell
 eval "$(rbenv init -)"
 
+# Fix the "ruby read server certificate B: certificate verify failed" SSL error.
 export SSL_CERT_FILE=/usr/local/etc/openssl/certs/cert.pem
 
 ### Added by the Heroku Toolbelt

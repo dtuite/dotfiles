@@ -45,11 +45,15 @@ if version >= 700
    set nospell " but turn it off by default
 endif
 
+" Locate the .netrwhist file in the home directory, not under .vim.
+" INFO: http://goo.gl/GhFU8H
+let g:netrw_home=$HOME
+
 " This guifont setting only makes a difference in MacVim or
 " similar. In terminal VIM, the terminal's setting will
 " be used. For example, change the font in iTerm2's preferences
 " pane and the font in VIM will change too.
-set guifont=Monaco:h13 " set the default font
+set guifont=SourceCodePro-Regular:h13 " set the default font
 
 set tabstop=2 "one tab = 2 spaces
 set expandtab "when I tab, really do spaces

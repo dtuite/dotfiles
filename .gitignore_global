@@ -44,3 +44,12 @@ Thumbs.db
 
 # Added when installing RBenv
 vendor/bundle
+
+# Binstubs. I'm not sure I should actually include these in the gitignore. The
+# main reason I'm doing it is to avoid a situation where the very first commit
+# I make to thoughtbot is adding binstubs. At the same time, I don't want the
+# first commit I make to be me changing their gitignore to ignore binstubs. I
+# feel like they must have already discussed this at some previous point.
+#
+# There's discussion from the Rails core team here: http://goo.gl/VU3u0
+bin/stubs
