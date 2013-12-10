@@ -143,7 +143,7 @@ let g:ctrlp_custom_ignore = '\v([\/]\.(git|hg|svn|bundle|sass-cache)|vendor/bund
 
 " settings needed for solarized colorscheme
 syntax enable
-set background=light
+set background=dark
 " Use the degraded 256 color scheme in terminal vim
 " INFO: http://ethanschoonover.com/solarized/vim-colors-solarized#important-note-for-terminal-users
 " let g:solarized_termcolors=256
@@ -232,6 +232,9 @@ inoremap jj <Esc>
 
 " Use Ctrl-u to change the word you're in the middle of typing to uppercase
 inoremap <c-u> <esc>viwUea
+
+" Copy current file name to clipboard
+nnoremap <leader>f :let @+=expand('%')<cr>
 
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " RENAME CURRENT FILE
@@ -355,9 +358,3 @@ function! RunTests(filename)
         end
     end
 endfunction
-
-""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-" COPY CURRENT FILE NAME TO CLIPBOARD
-""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-
-nnoremap <leader>f :let @+=expand('%')<cr>
