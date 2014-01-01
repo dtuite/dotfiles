@@ -14,6 +14,6 @@ alias iphone="open /Applications/Xcode.app/Contents/Developer/Platforms/iPhoneSi
 # Ruby and Rails
 # --------------
 
-alias migrate='rake db:migrate && rake db:test:prepare'
-alias rebuild='rake db:drop db:create && migrate && rake db:seed'
 alias be='bundle exec'
+alias migrate='be rake db:migrate && be rake db:test:prepare'
+alias rebuild='be rake db:drop db:create && migrate && be rake db:seed'

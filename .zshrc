@@ -60,3 +60,6 @@ export SSL_CERT_FILE=/usr/local/etc/openssl/certs/cert.pem
 
 ### Added by the Heroku Toolbelt
 export PATH="/usr/local/heroku/bin:$PATH"
+
+# Update oh-my-zsh without prompting.
+DISABLE_UPDATE_PROMPT=true

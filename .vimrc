@@ -236,6 +236,11 @@ inoremap <c-u> <esc>viwUea
 " Copy current file name to clipboard
 nnoremap <leader>f :let @+=expand('%')<cr>
 
+" Access common rails files.
+nnoremap <leader>ro :e config/routes.rb<cr>
+nnoremap <leader>ac :e config/app_config.yml<cr>
+nnoremap <leader>sc :e db/schema.rb<cr>
+
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " RENAME CURRENT FILE
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
