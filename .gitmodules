@@ -47,3 +47,6 @@
 [submodule ".vim/bundle/autocorrect"]
 	path = .vim/bundle/autocorrect
 	url = https://github.com/panozzaj/vim-autocorrect
+[submodule ".vim/bundle/eco"]
+	path = .vim/bundle/eco
+	url = git@github.com:AndrewRadev/vim-eco.git
