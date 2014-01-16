@@ -26,7 +26,7 @@ CASE_SENSITIVE="true"
 
 # Which plugins would you like to load? (plugins can be found in ~/.oh-my-zsh/plugins/*)
 # Example format: plugins=(rails git textmate ruby lighthouse)
-plugins=(git git-flow)
+plugins=(git)
 
 source $ZSH/oh-my-zsh.sh
 
@@ -41,10 +41,6 @@ export PATH='$PATH:/usr/local/bin:/usr/bin:/bin:/usr/sbin:/sbin:/usr/X11/bin:/us
 
 # Turn off auto-spelling-correction
 setopt nocorrectall
-
-# Don't correct the following commands
-alias thin='nocorrect thin'
-alias guard='nocorrect guard'
 
 # Read alises from a separate file.
 source $HOME/.aliases
