@@ -1,3 +1,5 @@
 export HOME=/Users/davidtuite
 export PATH="$HOME/.rbenv/shims:$HOME/.rbenv/bin:/usr/local/bin:$PATH"
 export PATH="/usr/local/opt/rbenv/shims:/usr/local/opt/rbenv/bin:$PATH"
+# INFO: http://goo.gl/hKeO9M
+export POW_EXT_DOMAINS=ngrok.com

@@ -20,3 +20,10 @@ Host green
   User deployer
   PreferredAuthentications publickey
   IdentityFile ~/.ssh/id_rsa
+
+Host blue
+  HostName 162.243.245.46
+  Port 22
+  User deployer
+  PreferredAuthentications publickey
+  IdentityFile ~/.ssh/id_rsa

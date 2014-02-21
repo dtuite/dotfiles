@@ -53,7 +53,7 @@ let g:netrw_home=$HOME
 " similar. In terminal VIM, the terminal's setting will
 " be used. For example, change the font in iTerm2's preferences
 " pane and the font in VIM will change too.
-set guifont=SourceCodePro-Regular:h13 " set the default font
+set guifont=SourceCodePro-Regular:h12 " set the default font
 
 set tabstop=2 "one tab = 2 spaces
 set expandtab "when I tab, really do spaces
@@ -240,6 +240,10 @@ nnoremap <leader>f :let @+=expand('%')<cr>
 nnoremap <leader>ro :e config/routes.rb<cr>
 nnoremap <leader>ac :e config/app_config.yml<cr>
 nnoremap <leader>sc :e db/schema.rb<cr>
+
+" Remove all erb tags in the visual selection.
+" Stands for <leader> remove erb
+" nnoremap <leader>re :'<,'>s/<%=\s//g | '<,'>s/\s-%>//g | '<,'>s/<%\s//g | '<,'>s/\s%>//g
 
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " RENAME CURRENT FILE
