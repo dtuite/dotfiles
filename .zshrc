@@ -49,7 +49,7 @@ source $HOME/.aliases
 export GIT_MERGE_AUTOEDIT=no
 
 # Instantiate rbenv with your shell
-eval "$(rbenv init -)"
+if which rbenv > /dev/null; then eval "$(rbenv init - zsh)"; fi
 
 # Fix the "ruby read server certificate B: certificate verify failed" SSL error.
 export SSL_CERT_FILE=/usr/local/etc/openssl/certs/cert.pem
