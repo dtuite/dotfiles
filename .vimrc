@@ -144,9 +144,6 @@ let g:ctrlp_custom_ignore = '\v([\/]\.(git|hg|svn|bundle|sass-cache)|vendor/bund
 " settings needed for solarized colorscheme
 syntax enable
 set background=dark
-" Use the degraded 256 color scheme in terminal vim
-" INFO: http://ethanschoonover.com/solarized/vim-colors-solarized#important-note-for-terminal-users
-" let g:solarized_termcolors=256
 colorscheme solarized
 
 " Highlight labels. NOTE: This has to come after we set our colorscheme
@@ -162,6 +159,7 @@ colorscheme solarized
 "   endif
 " endif
 
+" TODO: DOesn't seem to be working
 " Jump to last cursor position unless it's in an event handler
 autocmd BufReadPost * 
   \ if line("'\"") > 1 && line("'\"") <= line("$") | 
