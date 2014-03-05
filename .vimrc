@@ -245,6 +245,16 @@ nnoremap <leader>sc :e db/schema.rb<cr>
 " Stands for <leader> remove erb
 " nnoremap <leader>re :'<,'>s/<%=\s//g | '<,'>s/\s-%>//g | '<,'>s/<%\s//g | '<,'>s/\s%>//g
 
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+" MACROS
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+
+" Instructions on using spcial chars such as <Esc> or backspace in Vimrc
+" stored macros: http://stackoverflow.com/q/2943555/574190
+
+"  == the Escape key. Gotten by pressing <Ctrl-v>{Esc> while in insert mode.
+let @s = 'El3xi:bhx'
+
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " RENAME CURRENT FILE
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""

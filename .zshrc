@@ -52,6 +52,7 @@ export GIT_MERGE_AUTOEDIT=no
 if which rbenv > /dev/null; then eval "$(rbenv init - zsh)"; fi
 
 # Fix the "ruby read server certificate B: certificate verify failed" SSL error.
+# INFO: http://railsapps.github.io/openssl-certificate-verify-failed.html#comment-657918573
 export SSL_CERT_FILE=/usr/local/etc/openssl/certs/cert.pem
 
 ### Added by the Heroku Toolbelt
