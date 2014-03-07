@@ -50,3 +50,6 @@
 [submodule ".vim/bundle/eco"]
 	path = .vim/bundle/eco
 	url = git@github.com:AndrewRadev/vim-eco.git
+[submodule ".vim/bundle/mustache"]
+	path = .vim/bundle/mustache
+	url = git://github.com/mustache/vim-mustache-handlebars.git
