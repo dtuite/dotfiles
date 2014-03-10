@@ -239,6 +239,8 @@ nnoremap <leader>ro :e config/routes.rb<cr>
 nnoremap <leader>ac :e config/app_config.yml<cr>
 nnoremap <leader>sc :e db/schema.rb<cr>
 
+map Y y$
+
 " Remove all erb tags in the visual selection.
 " Stands for <leader> remove erb
 " nnoremap <leader>re :'<,'>s/<%=\s//g | '<,'>s/\s-%>//g | '<,'>s/<%\s//g | '<,'>s/\s%>//g
