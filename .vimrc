@@ -11,6 +11,25 @@ set nocompatible
 
 call pathogen#helptags()
 
+" Plugin 'gmarik/vundle'
+" Plugin 'kchmck/vim-coffee-script'
+" Plugin 'fsouza/go'
+" Plugin 'othree/html5'
+" Plugin 'briancollins/vim-jst'
+" Plugin 'groenwege/vim-less'
+" Plugin 'jinfield/vim-nginx'
+" Plugin 'altercation/vim-colours-solarized'
+" Plugin 'tpope/vim-surround'
+" Plugin 'kien/ctrlp'
+" Plugin 'MarcWeber/vim-addon-mw-utils'
+" Plugin 'tomtom/tlib_vim'
+" Plugin 'guns/vim-closure-static'
+" Plugin 'garbas/vim-snipmate'
+" Plugin 'mattn/emmet-vim'
+" Plugin 'AndrewRadev/vim-eco'
+" Plugin 'mustache/vim-mustache-handlebars'
+
+
 set ruler " show the cursor position all the time
 
 " reduce the timeout length to speed up the 'O' command.
