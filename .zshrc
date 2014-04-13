@@ -60,3 +60,5 @@ export PATH="/usr/local/heroku/bin:$PATH"
 
 # Update oh-my-zsh without prompting.
 DISABLE_UPDATE_PROMPT=true
+
+export EDITOR="/usr/local/bin/vim"

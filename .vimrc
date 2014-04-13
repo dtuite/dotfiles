@@ -121,6 +121,9 @@ set showtabline=2
 " it gets filled full of gem code when you use RBenv and slows down
 " CtrlP a lot.
 let g:ctrlp_custom_ignore = '\v([\/]\.(git|hg|svn|bundle|sass-cache)|vendor/bundle)$'
+" Not entierly sure what this does. Got it from here: http://goo.gl/KbxtXo
+let g:ctrlp_user_command = ['.git', 'cd %s && git ls-files . -co --exclude-standard', 'find %s -type f']
+let g:ctrlp_use_caching = 0
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " AUTOCOMMANDS
