@@ -26,8 +26,8 @@ Plugin 'kien/ctrlp.vim'
 Plugin 'mattn/emmet-vim'
 Plugin 'AndrewRadev/vim-eco'
 Plugin 'mustache/vim-mustache-handlebars'
-Bundle 'SirVer/ultisnips'
-Bundle 'honza/vim-snippets'
+Plugin 'SirVer/ultisnips'
+Plugin 'file:///Users/davidtuite/dev/vim-snippets'
 
 filetype plugin indent on
 
@@ -149,6 +149,7 @@ let g:ctrlp_use_caching = 0
 let g:UltiSnipsExpandTrigger="<tab>"
 let g:UltiSnipsJumpForwardTrigger="<tab>"
 let g:UltiSnipsJumpBackwardTrigger="<s-tab>"
+let g:UltiSnipsSnippetsDir="/Users/davidtuite/dev/vim-snippets/UltiSnips"
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " AUTOCOMMANDS
@@ -171,7 +172,7 @@ let g:UltiSnipsJumpBackwardTrigger="<s-tab>"
 
 " settings needed for solarized colorscheme
 syntax enable
-set background=dark
+set background=light
 colorscheme solarized
 
 " Highlight labels. NOTE: This has to come after we set our colorscheme
@@ -203,7 +204,8 @@ autocmd BufRead,BufNewFile *.erb set filetype=eruby.html
 
 " NOTE: This line must come after the previous one since it's matcher is
 " more specific. The one above will clobber it if it comes second.
-autocmd BufRead,BufNewFile *.html.erb set filetype=eruby-rails.eruby.html
+" Use this if you would like to use rails specific ERB snippets.
+" autocmd BufRead,BufNewFile *.html.erb set filetype=eruby-rails.eruby.html
 
 " Recognise all Ruby files ending in _spec.rb as RSpec files
 autocmd BufRead,BufNewFile *_spec.rb set filetype=ruby-rspec.ruby
