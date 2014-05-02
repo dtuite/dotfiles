@@ -273,7 +273,12 @@ map Y y$
 
 " Remove all erb tags in the visual selection.
 " Stands for <leader> remove erb
-" nnoremap <leader>re :'<,'>s/<%=\s//g | '<,'>s/\s-%>//g | '<,'>s/<%\s//g | '<,'>s/\s%>//g
+" INFO: http://stackoverflow.com/a/23424259/574190
+xnoremap <leader>re :s/<%=*\s//g <Bar> '<,'>s/\s-*%>//g<cr>
+
+" Delete the current line from the cursor back then append whatever is left
+" over to the line above.
+nnoremap <leader>cl d0kJ
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " MACROS
