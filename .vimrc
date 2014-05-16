@@ -172,7 +172,7 @@ let g:UltiSnipsSnippetsDir="/Users/davidtuite/dev/vim-snippets/UltiSnips"
 
 " settings needed for solarized colorscheme
 syntax enable
-set background=light
+set background=dark
 colorscheme solarized
 
 " Highlight labels. NOTE: This has to come after we set our colorscheme
@@ -280,6 +280,8 @@ xnoremap <leader>re :s/<%=*\s//g <Bar> '<,'>s/\s-*%>//g<cr>
 " over to the line above.
 nnoremap <leader>cl d0kJ
 
+nnoremap <leader>s :%s/:\([a-z_]*\)\s=>/\1:/g<cr>
+
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " MACROS
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
@@ -288,7 +290,9 @@ nnoremap <leader>cl d0kJ
 " stored macros: http://stackoverflow.com/q/2943555/574190
 
 "  == the Escape key. Gotten by pressing <Ctrl-v>{Esc> while in insert mode.
-let @s = 'El3xi:bhx'
+" NOTE: Commented out because I have a remap above which does every instance
+" in a file in one step.
+" let @s = 'El3xi:bhx'
 
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " RENAME CURRENT FILE
