@@ -6,3 +6,11 @@ Host orange
   IdentityFile ~/.ssh/id_rsa
   User deployer
   PreferredAuthentications publickey
+
+
+Host pink
+  HostName 162.243.245.46
+  Port 22
+  IdentityFile ~/.ssh/id_rsa
+  User deployer
+  PreferredAuthentications publickey
