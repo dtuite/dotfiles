@@ -33,7 +33,6 @@ source $ZSH/oh-my-zsh.sh
 # Customize to your needs...
 export PATH='$PATH:/usr/local/bin:/usr/bin:/bin:/usr/sbin:/sbin:/usr/X11/bin:/usr/local/sbin:/Users/davidtuite/bin'
 
-
 # Autocomplete settings
 # autoload -U compinit promptinit
 #compinit
