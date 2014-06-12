@@ -173,7 +173,7 @@ let g:UltiSnipsSnippetsDir="/Users/davidtuite/dev/vim-snippets/UltiSnips"
 
 " settings needed for solarized colorscheme
 syntax enable
-set background=dark
+set background=light
 colorscheme solarized
 
 " Highlight labels. NOTE: This has to come after we set our colorscheme
@@ -209,7 +209,7 @@ autocmd BufRead,BufNewFile *.erb set filetype=eruby.html
 " autocmd BufRead,BufNewFile *.html.erb set filetype=eruby-rails.eruby.html
 
 " Recognise all Ruby files ending in _spec.rb as RSpec files
-autocmd BufRead,BufNewFile *_spec.rb set filetype=ruby-rspec.ruby
+autocmd BufRead,BufNewFile *_spec.rb set filetype=rspec.ruby
 
 " Highlight various files as Ruby
 au BufRead,BufNewFile *.rabl,Gemfile,Guardfile set filetype=ruby
