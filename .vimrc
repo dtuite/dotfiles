@@ -28,7 +28,7 @@ Plugin 'mattn/emmet-vim'
 Plugin 'AndrewRadev/vim-eco'
 Plugin 'mustache/vim-mustache-handlebars'
 Plugin 'SirVer/ultisnips'
-Plugin 'file:///Users/davidtuite/dev/vim-snippets'
+Plugin 'file://~/dev/vim-snippets'
 
 filetype plugin indent on
 
