@@ -31,7 +31,21 @@ plugins=(git)
 source $ZSH/oh-my-zsh.sh
 
 # Customize to your needs...
-export PATH='$PATH:/usr/local/bin:/usr/bin:/bin:/usr/sbin:/sbin:/usr/X11/bin:/usr/local/sbin:/Users/davidtuite/bin'
+
+# Homebrew installed stuff
+export PATH=${PATH}:/usr/local/bin
+export PATH=${PATH}:/usr/bin
+export PATH=${PATH}:/bin
+export PATH=${PATH}:/usr/sbin
+export PATH=${PATH}:/sbin
+export PATH=${PATH}:/usr/X11/bin
+export PATH=${PATH}:/usr/local/sbin
+# Scripts I wrote myself.
+export PATH=${PATH}:/Users/davidtuite/bin
+# Stuff installed by the python package manager "pip"
+export PATH=${PATH}:/Users/davidtuite/Library/Python/2.7/bin
+# Added by the Heroku Toolbelt
+export PATH=${PATH}:/usr/local/heroku/bin
 
 # Autocomplete settings
 # autoload -U compinit promptinit
@@ -53,9 +67,6 @@ if which rbenv > /dev/null; then eval "$(rbenv init - zsh)"; fi
 # Fix the "ruby read server certificate B: certificate verify failed" SSL error.
 # INFO: http://railsapps.github.io/openssl-certificate-verify-failed.html#comment-657918573
 export SSL_CERT_FILE=/usr/local/etc/openssl/certs/cert.pem
-
-### Added by the Heroku Toolbelt
-export PATH="/usr/local/heroku/bin:$PATH"
 
 # Update oh-my-zsh without prompting.
 DISABLE_UPDATE_PROMPT=true

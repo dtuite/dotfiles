@@ -28,7 +28,7 @@ Plugin 'mattn/emmet-vim'
 Plugin 'AndrewRadev/vim-eco'
 Plugin 'mustache/vim-mustache-handlebars'
 Plugin 'SirVer/ultisnips'
-Plugin 'file://~/dev/vim-snippets'
+Plugin 'file:///Users/davidtuite/dev/vim-snippets'
 
 filetype plugin indent on
 
@@ -273,7 +273,7 @@ nnoremap <leader>sc :e db/schema.rb<cr>
 map Y y$
 
 " Remove all erb tags in the visual selection.
-" Stands for <leader> remove erb
+" Stands for <leader> Remove Erb
 " INFO: http://stackoverflow.com/a/23424259/574190
 xnoremap <leader>re :s/<%=*\s//g <Bar> '<,'>s/\s-*%>//g<cr>
 
@@ -281,6 +281,8 @@ xnoremap <leader>re :s/<%=*\s//g <Bar> '<,'>s/\s-*%>//g<cr>
 " over to the line above.
 nnoremap <leader>cl d0kJ
 
+" Turn all Ruby 1.8 style symbols (:something => "thing") in the current 
+" buffer into the newer Ruby 1.9 style (something: "thing").
 nnoremap <leader>s :%s/:\([a-z_]*\)\s=>/\1:/g<cr>
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
