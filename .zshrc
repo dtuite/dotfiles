@@ -30,10 +30,13 @@ plugins=(git)
 
 source $ZSH/oh-my-zsh.sh
 
-# Customize to your needs...
+# The PATH
+# NOTE: The first entry must not have "${PATH}". If it does then sourcing
+# this file will just continuously concatenate onto the end of the $PATH
+# rather than writing it from scratch.
 
 # Homebrew installed stuff
-export PATH=${PATH}:/usr/local/bin
+export PATH=/usr/local/bin
 export PATH=${PATH}:/usr/bin
 export PATH=${PATH}:/bin
 export PATH=${PATH}:/usr/sbin
