@@ -8,13 +8,13 @@
 "    https://github.com/garybernhardt/dotfiles/blob/master/.vimrc
 
 set nocompatible
-filetyp off
+filetype off
 
 " set the runtime path to include Vundle and initialize
-set rtp+=~/.vim/bundle/vundle/
-call vundle#rc()
+set rtp+=~/.vim/bundle/Vundle.vim
+call vundle#begin()
 
-Plugin 'gmarik/vundle'
+Plugin 'gmarik/Vundle.vim'
 Plugin 'kchmck/vim-coffee-script'
 Plugin 'fsouza/go.vim'
 Plugin 'othree/html5.vim'
@@ -28,7 +28,14 @@ Plugin 'mattn/emmet-vim'
 Plugin 'AndrewRadev/vim-eco'
 Plugin 'mustache/vim-mustache-handlebars'
 Plugin 'SirVer/ultisnips'
-Plugin 'file:///Users/davidtuite/dev/vim-snippets'
+let os = substitute(system('uname'), "\n", "", "")
+if os == "Darwin"
+  Plugin 'file:///Users/davidtuite/dev/vim-snippets'
+elseif os == "Linux"
+  Plugin 'file:///home/davidtuite/dev/vim-snippets'
+endif
+
+call vundle#end()
 
 filetype plugin indent on
 
@@ -173,7 +180,7 @@ let g:UltiSnipsSnippetsDir="/Users/davidtuite/dev/vim-snippets/UltiSnips"
 
 " settings needed for solarized colorscheme
 syntax enable
-set background=light
+set background=dark
 colorscheme solarized
 
 " Highlight labels. NOTE: This has to come after we set our colorscheme
