@@ -67,8 +67,8 @@ set number "line numbers
 set backspace=2 " make backspace work like most other apps
 
 if version >= 700
-   set spl=en spell " use english dictionary for spellchecking
-   set nospell " but turn it off by default
+  set spl=en spell " use english dictionary for spellchecking
+  set nospell " but turn it off by default
 endif
 
 " Locate the .netrwhist file in the home directory, not under .vim.
@@ -98,7 +98,7 @@ set smartcase
 
 " hide the toolbar in GUI mode
 if has("gui_running")
-    set go-=T
+  set go-=T
 end
 
 "smart indenting
@@ -192,9 +192,9 @@ colorscheme solarized
 " TODO: DOesn't seem to be working
 " Jump to last cursor position unless it's in an event handler
 autocmd BufReadPost * 
-  \ if line("'\"") > 1 && line("'\"") <= line("$") | 
-  \ exe "normal! g`\"" | 
-  \ endif
+      \ if line("'\"") > 1 && line("'\"") <= line("$") | 
+      \ exe "normal! g`\"" | 
+      \ endif
 
 " File Type Recognition
 " ---------------------
@@ -208,11 +208,13 @@ autocmd BufRead,BufNewFile *.erb set filetype=eruby.html
 " Use this if you would like to use rails specific ERB snippets.
 " autocmd BufRead,BufNewFile *.html.erb set filetype=eruby-rails.eruby.html
 
+autocmd BufRead,BufNewFile *.js.erb set filetype=eruby.javascript
+
 " Recognise all Ruby files ending in _spec.rb as RSpec files
 autocmd BufRead,BufNewFile *_spec.rb set filetype=rspec.ruby
 
 " Highlight various files as Ruby
-au BufRead,BufNewFile *.rabl,Gemfile,Guardfile set filetype=ruby
+au BufRead,BufNewFile *.jbuilder,*.rabl,Gemfile,Guardfile set filetype=ruby
 
 " Highlight JSON files list JavaScript
 autocmd BufNewFile,BufRead *.json set ft=javascript
@@ -220,9 +222,16 @@ autocmd BufNewFile,BufRead *.json set ft=javascript
 
 " Speed up loading of Ruby and ERuby files.
 " INFO: http://stackoverflow.com/a/13261715/574190 
-
 if !empty($MY_RUBY_HOME)
- let g:ruby_path = join(split(glob($MY_RUBY_HOME.'/lib/ruby/*.*')."\n".glob($MY_RUBY_HOME.'/lib/rubysite_ruby/*'),"\n"),',')
+  let g:ruby_path = join(split(glob($MY_RUBY_HOME.'/lib/ruby/*.*')."\n".glob($MY_RUBY_HOME.'/lib/rubysite_ruby/*'),"\n"),',')
+endif
+
+" Highlight the 80th character on each line as a guide.
+" http://stackoverflow.com/a/3765575/574190
+if exists('+colorcolumn')
+  set colorcolumn=80
+else
+  au BufWinEnter * let w:m2=matchadd('ErrorMsg', '\%>80v.\+', -1)
 endif
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
@@ -285,6 +294,9 @@ nnoremap <leader>cl d0kJ
 " buffer into the newer Ruby 1.9 style (something: "thing").
 nnoremap <leader>s :%s/:\([a-z_]*\)\s=>/\1:/g<cr>
 
+" Comment out all console.log statements in a JS file.
+nnoremap <leader>cc :%s/^\(\s*\)console\.log/\1\/\/ console.log/<cr>
+
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " MACROS
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
@@ -302,13 +314,13 @@ nnoremap <leader>s :%s/:\([a-z_]*\)\s=>/\1:/g<cr>
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 
 function! RenameFile()
-    let old_name = expand('%')
-    let new_name = input('New file name: ', expand('%'), 'file')
-    if new_name != '' && new_name != old_name
-        exec ':saveas ' . new_name
-        exec ':silent !rm ' . old_name
-        redraw!
-    endif
+  let old_name = expand('%')
+  let new_name = input('New file name: ', expand('%'), 'file')
+  if new_name != '' && new_name != old_name
+    exec ':saveas ' . new_name
+    exec ':silent !rm ' . old_name
+    redraw!
+  endif
 endfunction
 
 " NOTE: This won't work when using 'nmap' or 'map' (haven't tried others).
@@ -349,7 +361,18 @@ function! AlternateForCurrentFile()
   let new_file = current_file
   let in_spec = match(current_file, '^spec/') != -1
   let going_to_spec = !in_spec
-  let in_app = match(current_file, '\<controllers\>') != -1 || match(current_file, '\<models\>') != -1 || match(current_file, '\<views\>') != -1 || match(current_file, '\<mailers\>') != -1
+  " Determine whether or not we're in the app directory by checking if the
+  " current file name matches a list of directories which are commonly located
+  " under app/. This is a bad inplementation for two reasons:
+  "
+  "  1. You can add a directory named anything you like under app. That
+  "     directory will then not be matched by this test.
+  "  2. You could have a models directory under both app/ and lib/. That 
+  "     setup (which is common) would break this.
+  "
+  " TODO: Improve.
+  " let in_app = match(current_file, '\<controllers\>') != -1 || match(current_file, '\<models\>') != -1 || match(current_file, '\<views\>') != -1 || match(current_file, '\<mailers\>') != -1 || match(current_file, '\<presenters\>') != -1 || match(current_file, '\<helpers\>') != -1 || match(current_file, '\<serializers\>') != -1
+  let in_app = match(current_file, '^app/') != -1
   if going_to_spec
     if in_app
       let new_file = substitute(new_file, '^app/', '', '')
@@ -358,7 +381,7 @@ function! AlternateForCurrentFile()
     let new_file = 'spec/' . new_file
   else
     let new_file = substitute(new_file, '_spec\.rb$', '.rb', '')
-    let new_file = substitute(new_file, '^spec/', '', '')
+    let new_file = substitute(new_file, '^spec/', 'app/', '')
     if in_app
       let new_file = 'app/' . new_file
     end
@@ -378,44 +401,44 @@ nnoremap <leader>c :w\|:!script/features<cr>
 nnoremap <leader>w :w\|:!script/features --profile wip<cr>
 
 function! RunTestFile(...)
-    if a:0
-        let command_suffix = a:1
-    else
-        let command_suffix = ""
-    endif
+  if a:0
+    let command_suffix = a:1
+  else
+    let command_suffix = ""
+  endif
 
-    " Run the tests for the previously-marked file.
-    let in_test_file = match(expand("%"), '\(.feature\|_spec.rb\)$') != -1
-    if in_test_file
-        call SetTestFile()
-    elseif !exists("t:grb_test_file")
-        return
-    end
-    call RunTests(t:grb_test_file . command_suffix)
+  " Run the tests for the previously-marked file.
+  let in_test_file = match(expand("%"), '\(.feature\|_spec.rb\)$') != -1
+  if in_test_file
+    call SetTestFile()
+  elseif !exists("t:grb_test_file")
+    return
+  end
+  call RunTests(t:grb_test_file . command_suffix)
 endfunction
 
 function! RunNearestTest()
-    let spec_line_number = line('.')
-    call RunTestFile(":" . spec_line_number . " -b")
+  let spec_line_number = line('.')
+  call RunTestFile(":" . spec_line_number . " -b")
 endfunction
 
 function! SetTestFile()
-    " Set the spec file that tests will be run for.
-    let t:grb_test_file=@%
+  " Set the spec file that tests will be run for.
+  let t:grb_test_file=@%
 endfunction
 
 function! RunTests(filename)
-    " Write the file and run tests for the given filename
-    :w
-    if match(a:filename, '\.feature$') != -1
-        exec ":!script/features " . a:filename
+  " Write the file and run tests for the given filename
+  :w
+  if match(a:filename, '\.feature$') != -1
+    exec ":!script/features " . a:filename
+  else
+    if filereadable("script/test")
+      exec ":!script/test " . a:filename
+    elseif filereadable("Gemfile")
+      exec ":!bundle exec rspec --color " . a:filename
     else
-        if filereadable("script/test")
-            exec ":!script/test " . a:filename
-        elseif filereadable("Gemfile")
-            exec ":!bundle exec rspec --color " . a:filename
-        else
-            exec ":!rspec --color " . a:filename
-        end
+      exec ":!rspec --color " . a:filename
     end
+  end
 endfunction

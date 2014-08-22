@@ -17,3 +17,4 @@ alias iphone="open /Applications/Xcode.app/Contents/Developer/Platforms/iPhoneSi
 alias be='bundle exec'
 alias migrate='be rake db:migrate && be rake db:test:prepare'
 alias rebuild='be rake db:drop db:create && migrate && be rake db:seed'
+alias "gem install"="gem install --no-ri --no-rdoc"
