@@ -10,7 +10,7 @@ Host orange
 
 Host pink
   HostName 162.243.245.46
-  Port 22
+  Port 63512
   IdentityFile ~/.ssh/id_rsa
   User deployer
   PreferredAuthentications publickey
