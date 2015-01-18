@@ -69,7 +69,7 @@ if which rbenv > /dev/null; then eval "$(rbenv init - zsh)"; fi
 
 # Fix the "ruby read server certificate B: certificate verify failed" SSL error.
 # INFO: http://railsapps.github.io/openssl-certificate-verify-failed.html#comment-657918573
-export SSL_CERT_FILE=/usr/local/etc/openssl/certs/cert.pem
+# export SSL_CERT_FILE=/usr/local/etc/openssl/certs/cert.pem
 
 # Update oh-my-zsh without prompting.
 DISABLE_UPDATE_PROMPT=true
