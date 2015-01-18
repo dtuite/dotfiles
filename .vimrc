@@ -28,6 +28,7 @@ Plugin 'mattn/emmet-vim'
 Plugin 'AndrewRadev/vim-eco'
 Plugin 'mustache/vim-mustache-handlebars'
 Plugin 'SirVer/ultisnips'
+Plugin 'wting/rust.vim'
 let os = substitute(system('uname'), "\n", "", "")
 if os == "Darwin"
   Plugin 'file:///Users/davidtuite/dev/vim-snippets'
@@ -180,7 +181,7 @@ let g:UltiSnipsSnippetsDir="/Users/davidtuite/dev/vim-snippets/UltiSnips"
 
 " settings needed for solarized colorscheme
 syntax enable
-set background=light
+set background=dark
 colorscheme solarized
 
 " Highlight labels. NOTE: This has to come after we set our colorscheme
@@ -221,7 +222,7 @@ autocmd BufRead,BufNewFile *.js.erb set filetype=eruby.javascript
 autocmd BufRead,BufNewFile *_spec.rb set filetype=rspec.ruby
 
 " Highlight various files as Ruby
-au BufRead,BufNewFile *.jbuilder,*.rabl,Gemfile,Guardfile set filetype=ruby
+au BufRead,BufNewFile *.jbuilder,*.rabl,Gemfile,Guardfile,*.cap set filetype=ruby
 
 " Highlight JSON files list JavaScript
 autocmd BufNewFile,BufRead *.json set ft=javascript
