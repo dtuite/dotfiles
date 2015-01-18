@@ -1,0 +1,5 @@
+.mode column
+.header on
+.nullvalue NULL
+.separator "|"
+.width 30 30 30 30 30 30 30 30 30 30 30 30 30 30 30 30 30 30 30 30 30 30 30 30 30 30 30 30 30 30

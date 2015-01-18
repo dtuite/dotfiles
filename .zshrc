@@ -44,11 +44,14 @@ export PATH=${PATH}:/sbin
 export PATH=${PATH}:/usr/X11/bin
 export PATH=${PATH}:/usr/local/sbin
 # Scripts I wrote myself.
-export PATH=${PATH}:/Users/davidtuite/bin
+export PATH=${PATH}:$HOME/bin
 # Stuff installed by the python package manager "pip"
-export PATH=${PATH}:/Users/davidtuite/Library/Python/2.7/bin
+export PATH=${PATH}:$HOME/Library/Python/2.7/bin
 # Added by the Heroku Toolbelt
 export PATH=${PATH}:/usr/local/heroku/bin
+
+
+export JAVA_HOME=`/usr/libexec/java_home -v 1.7`
 
 # Autocomplete settings
 # autoload -U compinit promptinit
@@ -75,6 +78,15 @@ if which rbenv > /dev/null; then eval "$(rbenv init - zsh)"; fi
 DISABLE_UPDATE_PROMPT=true
 
 export EDITOR="/usr/local/bin/vim"
+
+# Golang
+
+# This is where all my go code lives.
+export GOPATH=$HOME/dev/gocode
+# This is where my own binaries live
+export PATH=${PATH}:$HOME/dev/gocode/bin
+# This is where godoc and gofmt live.
+export PATH=${PATH}:/usr/local/opt/go/libexec/bin
 
 # VI-Mode Functions, Fixes and Improvements
 # =========================================
