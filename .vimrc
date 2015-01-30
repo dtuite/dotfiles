@@ -29,6 +29,7 @@ Plugin 'AndrewRadev/vim-eco'
 Plugin 'mustache/vim-mustache-handlebars'
 Plugin 'SirVer/ultisnips'
 Plugin 'wting/rust.vim'
+Plugin 'leafgarland/typescript-vim'
 let os = substitute(system('uname'), "\n", "", "")
 if os == "Darwin"
   Plugin 'file:///Users/davidtuite/dev/vim-snippets'
@@ -87,7 +88,7 @@ let g:netrw_home=$HOME
 " similar. In terminal VIM, the terminal's setting will
 " be used. For example, change the font in iTerm2's preferences
 " pane and the font in VIM will change too.
-set guifont=SourceCodePro-Regular:h12 " set the default font
+set guifont=SourceCodePro-Regular:h11 " set the default font
 
 set tabstop=2 "one tab = 2 spaces
 set expandtab "when I tab, really do spaces
@@ -245,6 +246,9 @@ endif
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " CUSTOM KEYMAPS AND VARIABLES
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+
+" Use JSX highlighting in regular JS files. vim-jsx plugin.
+let g:jsx_ext_required = 0
 
 " Change the keymap for the CtrlP plugin
 " INFO: https://github.com/kien/ctrlp.vim

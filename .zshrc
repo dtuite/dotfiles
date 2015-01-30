@@ -51,7 +51,11 @@ export PATH=${PATH}:$HOME/Library/Python/2.7/bin
 export PATH=${PATH}:/usr/local/heroku/bin
 
 
-export JAVA_HOME=`/usr/libexec/java_home -v 1.7`
+export JAVA_HOME=`/usr/libexec/java_home -v 1.8`
+
+# Fix tmux Vim colours.
+# http://askubuntu.com/a/133623/100609
+export TERM="xterm-256color"
 
 # Autocomplete settings
 # autoload -U compinit promptinit

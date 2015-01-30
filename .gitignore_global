@@ -53,3 +53,7 @@ vendor/bundle
 #
 # There's discussion from the Rails core team here: http://goo.gl/VU3u0
 bin/stubs
+
+# JS Libs and Packages
+bower_components
+node_modules
