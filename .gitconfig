@@ -13,6 +13,8 @@
 	p = push
   b = branch --color
   ch = checkout
+  mef = merge --ff-only
+  pur = pull --rebase
 
   # Git l uses a function defined in ~/.githelpers.
   l = "!source ~/.githelpers && pretty_git_log"
@@ -24,7 +26,7 @@
   la = !git l --all
   lg = log --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset' --abbrev-commit --date=relative
 [core]
-	editor = /usr/bin/vim
+	editor = /usr/local/bin/vim
 	excludesfile = /Users/davidtuite/.gitignore_global
 
 [format]

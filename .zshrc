@@ -53,6 +53,10 @@ export PATH=${PATH}:/usr/local/heroku/bin
 
 export JAVA_HOME=`/usr/libexec/java_home -v 1.8`
 
+# Prevent pushing LegitScript gems to Rubygems.
+# https://team.legitscript.com/our-very-own-gem-server/
+export RUBYGEMS_HOST=https://gems.legitscript.com
+
 # Fix tmux Vim colours.
 # http://askubuntu.com/a/133623/100609
 export TERM="xterm-256color"

@@ -30,6 +30,8 @@ Plugin 'mustache/vim-mustache-handlebars'
 Plugin 'SirVer/ultisnips'
 Plugin 'wting/rust.vim'
 Plugin 'leafgarland/typescript-vim'
+Plugin 'rodjek/vim-puppet'
+Plugin 'chase/vim-ansible-yaml'
 let os = substitute(system('uname'), "\n", "", "")
 if os == "Darwin"
   Plugin 'file:///Users/davidtuite/dev/vim-snippets'
@@ -50,7 +52,7 @@ set ruler " show the cursor position all the time
 
 " reduce the timeout length to speed up the 'O' command.
 " See :help esckeys for more information
-set timeoutlen=500
+set timeoutlen=350
 
 " Allow backgrounding buffers without writing them, 
 " and remember marks/undo for backgrounded buffers
@@ -182,7 +184,7 @@ let g:UltiSnipsSnippetsDir="/Users/davidtuite/dev/vim-snippets/UltiSnips"
 
 " settings needed for solarized colorscheme
 syntax enable
-set background=dark
+set background=light
 colorscheme solarized
 
 " Highlight labels. NOTE: This has to come after we set our colorscheme
@@ -277,19 +279,17 @@ noremap n nzz
 nnoremap ; :
 nnoremap : ;
 
-" Map jj to exit insert mode
-inoremap jj <Esc>
-
 " Use Ctrl-u to change the word you're in the middle of typing to uppercase
 inoremap <c-u> <esc>viwUea
 
 " Copy current file name to clipboard
 nnoremap <leader>f :let @+=expand('%')<cr>
 
-" Access common rails files.
-nnoremap <leader>ro :e config/routes.rb<cr>
+" Access common rails files. The routes file isn't here becaue it's easy
+" to find with Ctrl-P search.
 nnoremap <leader>ac :e config/app_config.yml<cr>
 nnoremap <leader>sc :e db/schema.rb<cr>
+nnoremap <leader>se :e db/secrets.yml<cr>
 
 map Y y$
 
