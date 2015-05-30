@@ -30,6 +30,11 @@ plugins=(git)
 
 source $ZSH/oh-my-zsh.sh
 
+# Don't share history between iTerm2 tabs.
+# http://apple.stackexchange.com/a/75572/4983
+unsetopt inc_append_history
+unsetopt share_history
+
 # The PATH
 # NOTE: The first entry must not have "${PATH}". If it does then sourcing
 # this file will just continuously concatenate onto the end of the $PATH
@@ -52,6 +57,7 @@ export PATH=${PATH}:/usr/local/heroku/bin
 
 
 export JAVA_HOME=`/usr/libexec/java_home -v 1.8`
+export ANDROID_HOME=/usr/local/opt/android-sdk
 
 # Prevent pushing LegitScript gems to Rubygems.
 # https://team.legitscript.com/our-very-own-gem-server/
@@ -95,6 +101,19 @@ export GOPATH=$HOME/dev/gocode
 export PATH=${PATH}:$HOME/dev/gocode/bin
 # This is where godoc and gofmt live.
 export PATH=${PATH}:/usr/local/opt/go/libexec/bin
+
+# Node
+
+export NVM_DIR=~/.nvm
+source $(brew --prefix nvm)/nvm.sh
+
+# Haskell
+
+# Add GHC 7.8.4 to the PATH, via http://ghcformacosx.github.io/
+export GHC_DOT_APP="/Applications/ghc-7.8.4.app"
+if [ -d "$GHC_DOT_APP" ]; then
+  export PATH="${HOME}/.cabal/bin:${GHC_DOT_APP}/Contents/bin:${PATH}"
+fi
 
 # VI-Mode Functions, Fixes and Improvements
 # =========================================
