@@ -7,3 +7,9 @@ set tabstop=2
 set expandtab
 set shiftwidth=2
 set softtabstop=2
+
+noremap N Nzz
+noremap n nzz
+
+nnoremap <silent> zj o<Esc>
+nnoremap <silent> zk O<Esc>
