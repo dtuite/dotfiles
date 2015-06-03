@@ -41,6 +41,7 @@ Thumbs.db
 
 *.swp
 *.swo
+.idea
 
 # Added when installing RBenv
 vendor/bundle

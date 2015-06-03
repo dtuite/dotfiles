@@ -275,10 +275,6 @@ nnoremap <leader>sv :source $MYVIMRC<cr>
 noremap N Nzz
 noremap n nzz
 
-" Swap ; and :  Convenient.
-nnoremap ; :
-nnoremap : ;
-
 " Use Ctrl-u to change the word you're in the middle of typing to uppercase
 inoremap <c-u> <esc>viwUea
 
