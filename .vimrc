@@ -32,6 +32,7 @@ Plugin 'wting/rust.vim'
 Plugin 'leafgarland/typescript-vim'
 Plugin 'rodjek/vim-puppet'
 Plugin 'chase/vim-ansible-yaml'
+Plugin 'bling/vim-airline'
 let os = substitute(system('uname'), "\n", "", "")
 if os == "Darwin"
   Plugin 'file:///Users/davidtuite/dev/vim-snippets'
