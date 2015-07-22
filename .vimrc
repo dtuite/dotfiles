@@ -78,8 +78,7 @@ set number "line numbers
 set backspace=2 " make backspace work like most other apps
 
 if version >= 700
-  set spl=en spell " use english dictionary for spellchecking
-  set nospell " but turn it off by default
+  set spell spelllang=en_us
 endif
 
 " Locate the .netrwhist file in the home directory, not under .vim.
@@ -147,6 +146,7 @@ set foldenable
 
 " Always show tab bar
 set showtabline=2
+
 
 " List of directories to ignore when searching with the CtrlP plugin.
 " Main aim with this was to ignore the vendor/bundle in Rails apps because

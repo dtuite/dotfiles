@@ -19,6 +19,7 @@
 *.rar
 *.tar
 *.zip
+.cabal-sandbox
 
 # Logs and databases #
 ######################
