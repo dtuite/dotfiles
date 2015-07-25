@@ -23,7 +23,6 @@ Plugin 'groenewege/vim-less'
 Plugin 'jinfield/vim-nginx'
 Plugin 'altercation/vim-colors-solarized'
 Plugin 'tpope/vim-surround'
-Plugin 'kien/ctrlp.vim'
 Plugin 'mattn/emmet-vim'
 Plugin 'AndrewRadev/vim-eco'
 Plugin 'mustache/vim-mustache-handlebars'
@@ -153,10 +152,10 @@ set showtabline=2
 " Main aim with this was to ignore the vendor/bundle in Rails apps because
 " it gets filled full of gem code when you use RBenv and slows down
 " CtrlP a lot.
-let g:ctrlp_custom_ignore = '\v([\/]\.(git|hg|svn|bundle|sass-cache)|vendor/bundle|node_modules)$'
+" let g:ctrlp_custom_ignore = '\v([\/]\.(git|hg|svn|bundle|sass-cache)|vendor/bundle|node_modules)$'
 " Not entierly sure what this does. Got it from here: http://goo.gl/KbxtXo
-let g:ctrlp_user_command = ['.git', 'cd %s && git ls-files . -co --exclude-standard', 'find %s -type f']
-let g:ctrlp_use_caching = 0
+" let g:ctrlp_user_command = ['.git', 'cd %s && git ls-files . -co --exclude-standard', 'find %s -type f']
+" let g:ctrlp_use_caching = 0
 
 " Ultisnips configuration. Do not use <tab> if you use https://github.com/Valloric/YouCompleteMe.
 let g:UltiSnipsExpandTrigger="<tab>"
@@ -255,7 +254,7 @@ let g:jsx_ext_required = 0
 
 " Change the keymap for the CtrlP plugin
 " INFO: https://github.com/kien/ctrlp.vim
-let g:ctrlp_map = '<c-t>'
+" let g:ctrlp_map = '<c-t>'
 
 " Change the default mapleader key.
 let mapleader = ","
