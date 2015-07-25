@@ -147,6 +147,8 @@ set foldenable
 " Always show tab bar
 set showtabline=2
 
+" Use fzf for file completion
+set rtp+=~/.fzf
 
 " List of directories to ignore when searching with the CtrlP plugin.
 " Main aim with this was to ignore the vendor/bundle in Rails apps because
