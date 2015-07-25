@@ -149,15 +149,8 @@ set showtabline=2
 
 " Use fzf for file completion
 set rtp+=~/.fzf
-
-" List of directories to ignore when searching with the CtrlP plugin.
-" Main aim with this was to ignore the vendor/bundle in Rails apps because
-" it gets filled full of gem code when you use RBenv and slows down
-" CtrlP a lot.
-" let g:ctrlp_custom_ignore = '\v([\/]\.(git|hg|svn|bundle|sass-cache)|vendor/bundle|node_modules)$'
-" Not entierly sure what this does. Got it from here: http://goo.gl/KbxtXo
-" let g:ctrlp_user_command = ['.git', 'cd %s && git ls-files . -co --exclude-standard', 'find %s -type f']
-" let g:ctrlp_use_caching = 0
+" open FZF with Ctrl-T
+nnoremap <c-t> :FZF<cr>
 
 " Ultisnips configuration. Do not use <tab> if you use https://github.com/Valloric/YouCompleteMe.
 let g:UltiSnipsExpandTrigger="<tab>"
@@ -254,10 +247,6 @@ endif
 " Use JSX highlighting in regular JS files. vim-jsx plugin.
 let g:jsx_ext_required = 0
 
-" Change the keymap for the CtrlP plugin
-" INFO: https://github.com/kien/ctrlp.vim
-" let g:ctrlp_map = '<c-t>'
-
 " Change the default mapleader key.
 let mapleader = ","
 
@@ -284,7 +273,7 @@ inoremap <c-u> <esc>viwUea
 nnoremap <leader>f :let @+=expand('%')<cr>
 
 " Access common rails files. The routes file isn't here becaue it's easy
-" to find with Ctrl-P search.
+" to find with fuzzy search.
 nnoremap <leader>ac :e config/app_config.yml<cr>
 nnoremap <leader>sc :e db/schema.rb<cr>
 nnoremap <leader>se :e db/secrets.yml<cr>
