@@ -30,11 +30,6 @@ plugins=(git)
 
 source $ZSH/oh-my-zsh.sh
 
-# Don't share history between iTerm2 tabs.
-# http://apple.stackexchange.com/a/75572/4983
-unsetopt inc_append_history
-unsetopt share_history
-
 # The PATH
 # NOTE: The first entry must not have "${PATH}". If it does then sourcing
 # this file will just continuously concatenate onto the end of the $PATH
@@ -114,4 +109,9 @@ export GHC_DOT_APP="/Applications/ghc-7.8.4.app"
 if [ -d "$GHC_DOT_APP" ]; then
   export PATH="${HOME}/.cabal/bin:${GHC_DOT_APP}/Contents/bin:${PATH}"
 fi
+
+# FZF fuzzy finder. https://github.com/junegunn/fzf
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
+# Use ag to sensibly ignore files before searching.
+export FZF_DEFAULT_COMMAND='ag -l -g ""'
+export FZF_CTRL_T_COMMAND="$FZF_DEFAULT_COMMAND"

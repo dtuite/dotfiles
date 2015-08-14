@@ -138,8 +138,9 @@ set splitbelow
 "split pane to RHS
 set splitright
 
-" highlight mstching search 
-" set hlsearch
+" highlight words matching search 
+set hlsearch
+nnoremap <cr> :noh<cr>
 
 "allow code folding. shortcuts: zc zo
 set foldenable
@@ -295,6 +296,9 @@ nnoremap <leader>s :%s/:\([a-z_]*\)\s=>/\1:/g<cr>
 
 " Comment out all console.log statements in a JS file.
 nnoremap <leader>cc :%s/^\(\s*\)console\.log/\1\/\/ console.log/<cr>
+
+" Delete all trailing whitespace in a file.
+nnoremap <silent> <leader>dw :let _s=@/<Bar>:%s/\s\+$//e<Bar>:let @/=_s<Bar>:nohl<Bar>:w<CR>
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " MACROS
