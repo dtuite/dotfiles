@@ -1,10 +1,10 @@
 "
 " Vim Settings
 " Author David Tuite
-" 
+"
 " Resources
 "  - Many of the cool parts of this document come from Gary Bernhardt's .vimrc
-"    which can be found on Github: 
+"    which can be found on Github:
 "    https://github.com/garybernhardt/dotfiles/blob/master/.vimrc
 
 set nocompatible
@@ -15,11 +15,8 @@ set rtp+=~/.vim/bundle/Vundle.vim
 call vundle#begin()
 
 Plugin 'gmarik/Vundle.vim'
-Plugin 'kchmck/vim-coffee-script'
 Plugin 'fsouza/go.vim'
 Plugin 'othree/html5.vim'
-Plugin 'briancollins/vim-jst'
-Plugin 'groenewege/vim-less'
 Plugin 'jinfield/vim-nginx'
 Plugin 'altercation/vim-colors-solarized'
 Plugin 'tpope/vim-surround'
@@ -27,11 +24,8 @@ Plugin 'mattn/emmet-vim'
 Plugin 'AndrewRadev/vim-eco'
 Plugin 'mustache/vim-mustache-handlebars'
 Plugin 'SirVer/ultisnips'
-Plugin 'wting/rust.vim'
-Plugin 'leafgarland/typescript-vim'
 Plugin 'rodjek/vim-puppet'
-Plugin 'chase/vim-ansible-yaml'
-Plugin 'bling/vim-airline'
+Plugin 'elixir-lang/vim-elixir'
 let os = substitute(system('uname'), "\n", "", "")
 if os == "Darwin"
   Plugin 'file:///Users/davidtuite/dev/vim-snippets'
@@ -43,7 +37,6 @@ call vundle#end()
 
 filetype plugin indent on
 
-
 " """""
 " Rules
 " """""
@@ -54,7 +47,7 @@ set ruler " show the cursor position all the time
 " See :help esckeys for more information
 set timeoutlen=350
 
-" Allow backgrounding buffers without writing them, 
+" Allow backgrounding buffers without writing them,
 " and remember marks/undo for backgrounded buffers
 set hidden
 
@@ -89,7 +82,7 @@ let g:netrw_home=$HOME
 " similar. In terminal VIM, the terminal's setting will
 " be used. For example, change the font in iTerm2's preferences
 " pane and the font in VIM will change too.
-set guifont=SourceCodePro-Regular:h11 " set the default font
+set guifont=Hack:h11 " set the default font
 
 set tabstop=2 "one tab = 2 spaces
 set expandtab "when I tab, really do spaces
@@ -138,7 +131,7 @@ set splitbelow
 "split pane to RHS
 set splitright
 
-" highlight words matching search 
+" highlight words matching search
 set hlsearch
 nnoremap <cr> :noh<cr>
 
@@ -198,9 +191,9 @@ colorscheme solarized
 
 " TODO: DOesn't seem to be working
 " Jump to last cursor position unless it's in an event handler
-autocmd BufReadPost * 
-      \ if line("'\"") > 1 && line("'\"") <= line("$") | 
-      \ exe "normal! g`\"" | 
+autocmd BufReadPost *
+      \ if line("'\"") > 1 && line("'\"") <= line("$") |
+      \ exe "normal! g`\"" |
       \ endif
 
 " File Type Recognition
@@ -226,9 +219,10 @@ au BufRead,BufNewFile *.jbuilder,*.rabl,Gemfile,Guardfile,*.cap set filetype=rub
 " Highlight JSON files list JavaScript
 autocmd BufNewFile,BufRead *.json set ft=javascript
 
+autocmd BufNewFile,BufRead *.yml.dist,*.yaml.dist,*.yml.sample,*.yaml.sample set ft=yaml
 
 " Speed up loading of Ruby and ERuby files.
-" INFO: http://stackoverflow.com/a/13261715/574190 
+" INFO: http://stackoverflow.com/a/13261715/574190
 if !empty($MY_RUBY_HOME)
   let g:ruby_path = join(split(glob($MY_RUBY_HOME.'/lib/ruby/*.*')."\n".glob($MY_RUBY_HOME.'/lib/rubysite_ruby/*'),"\n"),',')
 endif
@@ -240,6 +234,14 @@ if exists('+colorcolumn')
 else
   au BufWinEnter * let w:m2=matchadd('ErrorMsg', '\%>80v.\+', -1)
 endif
+
+" Highlight whitespace in places you don't want it.
+highlight ExtraWhitespace ctermbg=red guibg=red
+match ExtraWhitespace /\s\+$/
+autocmd BufWinEnter * match ExtraWhitespace /\s\+$/
+autocmd InsertEnter * match ExtraWhitespace /\s\+\%#\@<!$/
+autocmd InsertLeave * match ExtraWhitespace /\s\+$/
+autocmd BufWinLeave * call clearmatches()
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " CUSTOM KEYMAPS AND VARIABLES
@@ -262,6 +264,9 @@ nnoremap <silent> zk O<Esc>
 nnoremap <leader>ev :vsp $MYVIMRC<cr>
 nnoremap <leader>sv :source $MYVIMRC<cr>
 
+" Delete the current file.
+nnoremap <leader>df :!rm %<cr>
+
 " Search mappings: These will make it so that going to the next one in a
 " search will center on the line it's found in.
 noremap N Nzz
@@ -269,6 +274,8 @@ noremap n nzz
 
 " Use Ctrl-u to change the word you're in the middle of typing to uppercase
 inoremap <c-u> <esc>viwUea
+
+inoremap jj <esc>
 
 " Copy current file name to clipboard
 nnoremap <leader>f :let @+=expand('%')<cr>
@@ -290,7 +297,7 @@ xnoremap <leader>re :s/<%=*\s//g <Bar> '<,'>s/\s-*%>//g<cr>
 " over to the line above.
 nnoremap <leader>cl d0kJ
 
-" Turn all Ruby 1.8 style symbols (:something => "thing") in the current 
+" Turn all Ruby 1.8 style symbols (:something => "thing") in the current
 " buffer into the newer Ruby 1.9 style (something: "thing").
 nnoremap <leader>s :%s/:\([a-z_]*\)\s=>/\1:/g<cr>
 
@@ -370,7 +377,7 @@ function! AlternateForCurrentFile()
   "
   "  1. You can add a directory named anything you like under app. That
   "     directory will then not be matched by this test.
-  "  2. You could have a models directory under both app/ and lib/. That 
+  "  2. You could have a models directory under both app/ and lib/. That
   "     setup (which is common) would break this.
   "
   " TODO: Improve.

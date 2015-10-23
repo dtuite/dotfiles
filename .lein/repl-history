@@ -1,0 +1,39 @@
+(= true true)
+(= true false)
+\q
+exit
+(let [x 3] x)
+(def dalmation-list
+["Pongo" "perdita" "Puppy 1" "Puppy 2"])
+(let [dalmations (take 2 dalmationlist)] dalmations)
+(let [dalmations (take 2 dalmation-list)] dalmations)
+exit
+(conj [1 2 3 4] 5)
+(conj [1 2 3 4] 5 6)
+(conj [1 2 3 4] [5 6])
+(conj '(1 2 3) 4 5)
+exit
+(loop [iteration 0]
+(println (str "Iteration " iteration))
+(if (> iteration 3)
+(println "Goodbye")
+(recur (inc iteration))))
+exit
+(defn titleize
+[word]
+(str word " for the brave and true"))
+(map titleize ["One" "Two"])
+(map titleize ("One" "Two"))
+(map titleize '("One" "Two"))
+(map titleize #{"One" "Two"})
+(defn label-key-val
+[[key val]]
+(str "key: " key "val: " val))
+(map label-key-val {:name "Edward"
+:occupation "perennial high schooler"})
+exit
+(identity "Hello there")
+(map identity {:name "David" :surname "Tuite"})
+(seq {:name "David" :surname "Tuite"})
+(map str ["a" "b" "c"] ["A" "B" "C"])
+exit

@@ -16,6 +16,7 @@
   mef = merge --ff-only
   pur = pull --rebase
   rc = rebase --continue
+  rs = rebase --skip
 
   # Git l uses a function defined in ~/.githelpers.
   l = "!source ~/.githelpers && pretty_git_log"

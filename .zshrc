@@ -24,9 +24,11 @@ CASE_SENSITIVE="true"
 # Uncomment following line if you want red dots to be displayed while waiting for completion
 # COMPLETION_WAITING_DOTS="true"
 
+setopt HIST_IGNORE_SPACE
+
 # Which plugins would you like to load? (plugins can be found in ~/.oh-my-zsh/plugins/*)
 # Example format: plugins=(rails git textmate ruby lighthouse)
-plugins=(git)
+plugins=(git brew gem httpie docker)
 
 source $ZSH/oh-my-zsh.sh
 
@@ -115,3 +117,9 @@ fi
 # Use ag to sensibly ignore files before searching.
 export FZF_DEFAULT_COMMAND='ag -l -g ""'
 export FZF_CTRL_T_COMMAND="$FZF_DEFAULT_COMMAND"
+
+
+# Git status info in the command prompt.
+# Needs this issue to be closed before it will work well with Solarized:
+# https://github.com/michaeldfallen/git-radar/issues/12
+# export PROMPT="$PROMPT$(git-radar --zsh --fetch) "
