@@ -58,3 +58,7 @@ bin/stubs
 # JS Libs and Packages
 bower_components
 node_modules
+
+.rspec
+.ruby-version
+.ruby-gemset
