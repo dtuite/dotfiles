@@ -28,7 +28,11 @@ setopt HIST_IGNORE_SPACE
 
 # Which plugins would you like to load? (plugins can be found in ~/.oh-my-zsh/plugins/*)
 # Example format: plugins=(rails git textmate ruby lighthouse)
+<<<<<<< 4d21ce69fcbece69c609e34ad65fabd3e9085047
 plugins=(git brew gem httpie docker rvm)
+=======
+plugins=(git brew gem httpie docker)
+>>>>>>> Vim updates
 
 source $ZSH/oh-my-zsh.sh
 
@@ -120,6 +124,10 @@ export FZF_CTRL_T_COMMAND="$FZF_DEFAULT_COMMAND"
 
 
 # Workday stuff.
+[ -f $HOME/workday_dotfiles/.aliases ] && source $HOME/workday_dotfiles/.aliases
+[ -f $HOME/workday_dotfiles/.aliases ] && source $HOME/workday_dotfiles/.zshrc
 
-source $HOME/workday_dotfiles/.aliases
-source $HOME/workday_dotfiles/.zshrc
+# Git status info in the command prompt.
+# Needs this issue to be closed before it will work well with Solarized:
+# https://github.com/michaeldfallen/git-radar/issues/12
+# export PROMPT="$PROMPT$(git-radar --zsh --fetch) "
