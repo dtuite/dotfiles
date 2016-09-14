@@ -15,16 +15,12 @@ set rtp+=~/.vim/bundle/Vundle.vim
 call vundle#begin()
 
 Plugin 'gmarik/Vundle.vim'
-Plugin 'fsouza/go.vim'
 Plugin 'othree/html5.vim'
 Plugin 'jinfield/vim-nginx'
 Plugin 'altercation/vim-colors-solarized'
 Plugin 'tpope/vim-surround'
 Plugin 'mattn/emmet-vim'
-Plugin 'AndrewRadev/vim-eco'
-Plugin 'mustache/vim-mustache-handlebars'
 Plugin 'SirVer/ultisnips'
-Plugin 'rodjek/vim-puppet'
 Plugin 'elixir-lang/vim-elixir'
 let os = substitute(system('uname'), "\n", "", "")
 if os == "Darwin"
@@ -156,38 +152,10 @@ let g:UltiSnipsSnippetsDir="/Users/davidtuite/dev/vim-snippets/UltiSnips"
 " AUTOCOMMANDS
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 
-" COLOR DEFINITION SECTION
-" autocmd ColorScheme * highlight <ColorName> ctermbg=<TerminalBackgroundColour> guibg=<GuiBackgroundColour> ctermfg=<TerminalFontColor> guifg=<GuiFontColour>
-" Solarized color palate: https://github.com/altercation/solarized/blob/master/vim-colors-solarized/colors/solarized.vim
-
-" cterm colours must be from predeterminged list. See :help cterm-colors for more info.
-" Gui colours may be any HEX colour
-
-" Define autocmd for some highlighting *before* the colorscheme is loaded
-" if !exists("autocmd_colorscheme_loaded")
-"   let autocmd_colorscheme_loaded = 1
-"   autocmd ColorScheme * highlight GoodNews     ctermbg=black guibg=#002b37 ctermfg=Green     guifg=#12C934
-"   autocmd ColorScheme * highlight WarningPurp  ctermbg=black guibg=#002b37 ctermfg=DarkRed     guifg=#B543B3
-"   autocmd ColorScheme * highlight TodoOrange   ctermbg=black guibg=#002b37 ctermfg=Red     guifg=#E0841B
-" endif
-
 " settings needed for solarized colorscheme
 syntax enable
 set background=light
 colorscheme solarized
-
-" Highlight labels. NOTE: This has to come after we set our colorscheme
-" if has("autocmd")
-"   " Highlight TODO, FIXME, XXX, NOTE, INFO, IDEA, TODO1, TODO2, .
-"   if v:version > 701
-"     " Build-in colours: Todo, Debug (not-comprehensive!)
-"     autocmd Syntax * call matchadd('TodoOrange',  '\W\zs\(???\|TODO\|FIXME\|XXX\)')
-"     autocmd Syntax * call matchadd('GoodNews', '\W\zs\(INFO\|IDEA\|NOTE\)')
-"     " autocmd Syntax * call matchadd('TodoRed', '\W\zs\(TODO1\)')
-"     " autocmd Syntax * call matchadd('TodoOrange', '\W\zs\(NOTE\)')
-"     " autocmd Syntax * call matchadd('TodoYellow', '\W\zs\(TODO3\)')
-"   endif
-" endif
 
 " TODO: DOesn't seem to be working
 " Jump to last cursor position unless it's in an event handler
@@ -227,12 +195,12 @@ if !empty($MY_RUBY_HOME)
   let g:ruby_path = join(split(glob($MY_RUBY_HOME.'/lib/ruby/*.*')."\n".glob($MY_RUBY_HOME.'/lib/rubysite_ruby/*'),"\n"),',')
 endif
 
-" Highlight the 80th character on each line as a guide.
+" Highlight the 100th character on each line as a guide.
 " http://stackoverflow.com/a/3765575/574190
 if exists('+colorcolumn')
-  set colorcolumn=80
+  set colorcolumn=100
 else
-  au BufWinEnter * let w:m2=matchadd('ErrorMsg', '\%>80v.\+', -1)
+  au BufWinEnter * let w:m2=matchadd('ErrorMsg', '\%>100v.\+', -1)
 endif
 
 " Highlight whitespace in places you don't want it.

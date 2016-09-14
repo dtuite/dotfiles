@@ -28,11 +28,7 @@ setopt HIST_IGNORE_SPACE
 
 # Which plugins would you like to load? (plugins can be found in ~/.oh-my-zsh/plugins/*)
 # Example format: plugins=(rails git textmate ruby lighthouse)
-<<<<<<< 4d21ce69fcbece69c609e34ad65fabd3e9085047
 plugins=(git brew gem httpie docker rvm)
-=======
-plugins=(git brew gem httpie docker)
->>>>>>> Vim updates
 
 source $ZSH/oh-my-zsh.sh
 
@@ -55,7 +51,6 @@ export PATH=${PATH}:$HOME/bin
 export PATH=${PATH}:$HOME/Library/Python/2.7/bin
 # Added by the Heroku Toolbelt
 export PATH=${PATH}:/usr/local/heroku/bin
-
 
 # export JAVA_HOME=`/usr/libexec/java_home -v 1.8`
 # export ANDROID_HOME=/usr/local/opt/android-sdk
