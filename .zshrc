@@ -28,7 +28,7 @@ setopt HIST_IGNORE_SPACE
 
 # Which plugins would you like to load? (plugins can be found in ~/.oh-my-zsh/plugins/*)
 # Example format: plugins=(rails git textmate ruby lighthouse)
-plugins=(git brew gem httpie docker rvm)
+plugins=(git brew gem httpie docker rvm yarn)
 
 source $ZSH/oh-my-zsh.sh
 
@@ -53,11 +53,10 @@ export PATH=${PATH}:$HOME/Library/Python/2.7/bin
 export PATH=${PATH}:/usr/local/heroku/bin
 
 # export JAVA_HOME=`/usr/libexec/java_home -v 1.8`
-# export ANDROID_HOME=/usr/local/opt/android-sdk
-
-# Prevent pushing LegitScript gems to Rubygems.
-# https://team.legitscript.com/our-very-own-gem-server/
-export RUBYGEMS_HOST=https://gems.legitscript.com
+export ANDROID_HOME=$HOME/Library/Android/sdk
+export PATH=${PATH}:${ANDROID_HOME}/tools
+export PATH=${PATH}:${ANDROID_HOME}/platform-tools
+export PATH=${PATH}:/Applications/Visual\ Studio\ Code.app/Contents/Resources/app/bin
 
 # Fix tmux Vim colours.
 # http://askubuntu.com/a/133623/100609
@@ -89,40 +88,13 @@ DISABLE_UPDATE_PROMPT=true
 
 export EDITOR="/usr/local/bin/vim"
 
-# Golang
-
-# This is where all my go code lives.
-export GOPATH=$HOME/dev/gocode
-# This is where my own binaries live
-export PATH=${PATH}:$HOME/dev/gocode/bin
-# This is where godoc and gofmt live.
-export PATH=${PATH}:/usr/local/opt/go/libexec/bin
-
 # Node
 
 export NVM_DIR=~/.nvm
 source $(brew --prefix nvm)/nvm.sh
 
-# Haskell
-
-# Add GHC 7.8.4 to the PATH, via http://ghcformacosx.github.io/
-export GHC_DOT_APP="/Applications/ghc-7.8.4.app"
-if [ -d "$GHC_DOT_APP" ]; then
-  export PATH="${HOME}/.cabal/bin:${GHC_DOT_APP}/Contents/bin:${PATH}"
-fi
-
-# FZF fuzzy finder. https://github.com/junegunn/fzf
+# # FZF fuzzy finder. https://github.com/junegunn/fzf
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
-# Use ag to sensibly ignore files before searching.
-export FZF_DEFAULT_COMMAND='ag -l -g ""'
+# # Use ag to sensibly ignore files before searching.
+export FZF_DEFAULT_COMMAND='ag -lg ""'
 export FZF_CTRL_T_COMMAND="$FZF_DEFAULT_COMMAND"
-
-
-# Workday stuff.
-[ -f $HOME/workday_dotfiles/.aliases ] && source $HOME/workday_dotfiles/.aliases
-[ -f $HOME/workday_dotfiles/.aliases ] && source $HOME/workday_dotfiles/.zshrc
-
-# Git status info in the command prompt.
-# Needs this issue to be closed before it will work well with Solarized:
-# https://github.com/michaeldfallen/git-radar/issues/12
-# export PROMPT="$PROMPT$(git-radar --zsh --fetch) "
