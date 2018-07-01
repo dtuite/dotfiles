@@ -16,18 +16,11 @@ call vundle#begin()
 
 Plugin 'gmarik/Vundle.vim'
 Plugin 'othree/html5.vim'
-Plugin 'jinfield/vim-nginx'
 Plugin 'altercation/vim-colors-solarized'
 Plugin 'tpope/vim-surround'
 Plugin 'mattn/emmet-vim'
-Plugin 'SirVer/ultisnips'
-Plugin 'elixir-lang/vim-elixir'
-let os = substitute(system('uname'), "\n", "", "")
-if os == "Darwin"
-  Plugin 'file:///Users/davidtuite/dev/vim-snippets'
-elseif os == "Linux"
-  Plugin 'file:///home/davidtuite/dev/vim-snippets'
-endif
+Plugin 'pangloss/vim-javascript'
+Plugin 'w0rp/ale'
 
 call vundle#end()
 
@@ -138,7 +131,7 @@ set foldenable
 set showtabline=2
 
 " Use fzf for file completion
-set rtp+=~/.fzf
+set rtp+=/usr/local/opt/fzf
 " open FZF with Ctrl-T
 nnoremap <c-t> :FZF<cr>
 
@@ -147,6 +140,11 @@ let g:UltiSnipsExpandTrigger="<tab>"
 let g:UltiSnipsJumpForwardTrigger="<tab>"
 let g:UltiSnipsJumpBackwardTrigger="<s-tab>"
 let g:UltiSnipsSnippetsDir="/Users/davidtuite/dev/vim-snippets/UltiSnips"
+
+let g:ale_linters = {
+\   'javascript': ['eslint'],
+\   'ruby': [],
+\}
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " AUTOCOMMANDS
