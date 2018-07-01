@@ -17,16 +17,8 @@
   pur = pull --rebase
   rc = rebase --continue
   rs = rebase --skip
+  r = log --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset' --abbrev-commit --date=relative
 
-  # Git l uses a function defined in ~/.githelpers.
-  l = "!source ~/.githelpers && pretty_git_log"
-  # The 30 most recent commits.
-  # FIXME: This doesn't actually work. For some reason, we can't pass
-  # args for git into the pretty_git_log function.
-  r = !git l -30
-  # Include all refs
-  la = !git l --all
-  lg = log --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset' --abbrev-commit --date=relative
 [core]
 	editor = /usr/local/bin/vim
 	excludesfile = /Users/davidtuite/.gitignore_global
@@ -41,3 +33,8 @@
 	ui = 1
 [push]
 	default = simple
+[filter "lfs"]
+	clean = git-lfs clean -- %f
+	smudge = git-lfs smudge -- %f
+	process = git-lfs filter-process
+	required = true

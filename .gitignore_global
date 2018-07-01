@@ -42,6 +42,8 @@ Thumbs.db
 *.swp
 *.swo
 .idea
+.agignore
+.vscode
 
 # Added when installing RBenv
 vendor/bundle
