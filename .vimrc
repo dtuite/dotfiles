@@ -7,6 +7,7 @@
 "    which can be found on Github:
 "    https://github.com/garybernhardt/dotfiles/blob/master/.vimrc
 
+set shell=/bin/bash
 set nocompatible
 filetype off
 
