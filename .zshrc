@@ -28,7 +28,7 @@ setopt HIST_IGNORE_SPACE
 
 # Which plugins would you like to load? (plugins can be found in ~/.oh-my-zsh/plugins/*)
 # Example format: plugins=(rails git textmate ruby lighthouse)
-plugins=(git brew gem httpie docker rvm yarn)
+plugins=(git brew gem yarn)
 
 source $ZSH/oh-my-zsh.sh
 
@@ -47,8 +47,6 @@ export PATH=${PATH}:/usr/X11/bin
 export PATH=${PATH}:/usr/local/sbin
 # Scripts I wrote myself.
 export PATH=${PATH}:$HOME/bin
-# Stuff installed by the python package manager "pip"
-export PATH=${PATH}:$HOME/Library/Python/2.7/bin
 # Added by the Heroku Toolbelt
 export PATH=${PATH}:/usr/local/heroku/bin
 
@@ -88,8 +86,7 @@ DISABLE_UPDATE_PROMPT=true
 
 export EDITOR="/usr/local/bin/vim"
 
-# Node
-
+# Node. Note: This is slow as balls
 export NVM_DIR=~/.nvm
 source $(brew --prefix nvm)/nvm.sh
 
