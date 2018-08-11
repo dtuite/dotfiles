@@ -136,12 +136,6 @@ set rtp+=/usr/local/opt/fzf
 " open FZF with Ctrl-T
 nnoremap <c-t> :FZF<cr>
 
-" Ultisnips configuration. Do not use <tab> if you use https://github.com/Valloric/YouCompleteMe.
-let g:UltiSnipsExpandTrigger="<tab>"
-let g:UltiSnipsJumpForwardTrigger="<tab>"
-let g:UltiSnipsJumpBackwardTrigger="<s-tab>"
-let g:UltiSnipsSnippetsDir="/Users/davidtuite/dev/vim-snippets/UltiSnips"
-
 let g:ale_linters = {
 \   'javascript': ['eslint'],
 \   'ruby': [],
