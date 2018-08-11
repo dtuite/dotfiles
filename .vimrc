@@ -19,8 +19,8 @@ Plugin 'gmarik/Vundle.vim'
 Plugin 'othree/html5.vim'
 Plugin 'altercation/vim-colors-solarized'
 Plugin 'tpope/vim-surround'
-Plugin 'mattn/emmet-vim'
 Plugin 'pangloss/vim-javascript'
+Plugin 'mxw/vim-jsx'
 Plugin 'w0rp/ale'
 
 call vundle#end()
